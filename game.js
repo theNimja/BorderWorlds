@@ -31,7 +31,7 @@ function update(){
 	if (waypointX < shipX){shipX--;}
 	if (waypointX > shipX){shipX++;}
 	if (waypointY < shipY){shipY--;}
-	if (waypointX > shipX){shipY++;}
+	if (waypointY > shipY){shipY++;}
 	}
 	
 }
