@@ -1,5 +1,8 @@
 body{
 	background: #BADA55;
+	     height:100%;
+     margin:0;
+     padding:0;
 }
 canvas{
 	display: block;
@@ -25,4 +28,4 @@ canvas{
      height:100%;
      text-align:center;
      z-index: 1000;
-}
+}	

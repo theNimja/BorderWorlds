@@ -4,10 +4,18 @@ var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
 var waypointX;
 var waypointY;
+
+
+
 //Set up images
 imgShip = new Image();
 imgShip.src = "images/protoShip.png";
 imgShip.addEventListener("load", init, false);
+imgProtoPlanet= new Image();
+imgProtoPlanet.src= "images/protoPlanet.png";
+imgProtoPlanet.addEventListener("load", init, false);
+
+
 //banana banana banana
 var requestAnimFrame=
 	window.requestAnimationFrame ||
@@ -20,8 +28,15 @@ var requestAnimFrame=
 	};
 	
 //important information on the ship	
+var maxHold=100;
+var shipHold=[];
 var shipX = 65;
 var shipY = 65;
+
+
+var planetXs=[100,250];
+var planetYs=[200,506];
+var planetIcos=[imgProtoPlanet,imgProtoPlanet];
 //banana banana banana
 function init(){
 	requestAnimFrame(update);
@@ -38,10 +53,21 @@ function update(){
 	if (waypointY < shipY){shipY--;}
 	if (waypointY > shipY){shipY++;}
 	}
+	for (i = 0; i < planetIcos.length; i++){
+	context.drawImage(planetIcos[i],planetXs[i],planetYs[i]);
+	}
 	//draw the ship
 	context.drawImage(imgShip,shipX,shipY);
+	
+	
+	
+	
+	
+	
+	
 }
 //getting info n mouse
+
 canvas.onmousedown = function(e){
 
     waypointX=getMousePos(canvas,e).x;
