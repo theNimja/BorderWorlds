@@ -1,6 +1,7 @@
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
-
+var waypointX;
+var waypointY;
 imgShip = new Image();
 imgShip.src = "images/protoShip.png";
 imgShip.addEventListener("load", init, false);
@@ -23,4 +24,20 @@ function init(){
 function update(){
 	context.drawImage(imgShip,shipX,shipY,100,77);
 	requestAnimFrame(update);
+	console.log(waypointX+","+waypointY);
+}
+
+canvas.onmousedown = function(e){
+
+    waypointX=getMousePos(canvas,e).x;
+    waypointY=getMousePos(canvas,e).y;
+
+}
+
+function getMousePos(canvas, evt) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+      x: evt.clientX - rect.left,
+      y: evt.clientY - rect.top
+    };
 }
