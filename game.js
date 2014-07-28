@@ -25,6 +25,12 @@ function update(){
 	context.drawImage(imgShip,shipX,shipY,100,77);
 	requestAnimFrame(update);
 	console.log(waypointX+","+waypointY);
+	if (waypointX != shipX || waypointy != shipY){
+	
+	
+	
+	}
+	
 }
 
 canvas.onmousedown = function(e){
