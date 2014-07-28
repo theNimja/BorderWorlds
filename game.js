@@ -2,6 +2,7 @@ var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
 var waypointX;
 var waypointY;
+
 imgShip = new Image();
 imgShip.src = "images/protoShip.png";
 imgShip.addEventListener("load", init, false);
@@ -22,13 +23,15 @@ function init(){
 }
 
 function update(){
-	context.drawImage(imgShip,shipX,shipY,100,77);
+	context.clearRect(0,0,canvas.width,canvas.height)
+	context.drawImage(imgShip,shipX,shipY);
 	requestAnimFrame(update);
 	console.log(waypointX+","+waypointY);
-	if (waypointX != shipX || waypointy != shipY){
-	
-	
-	
+	if (waypointX != shipX || waypointY != shipY){
+	if (waypointX < shipX){shipX--;}
+	if (waypointX > shipX){shipX++;}
+	if (waypointY < shipY){shipY--;}
+	if (waypointX > shipX){shipY++;}
 	}
 	
 }
