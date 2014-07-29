@@ -86,7 +86,7 @@ function update(){
 	if (waypointY < shipY){shipY--;dir+="U";}
 	if (waypointY > shipY){shipY++;dir+="D";}
 	}
-	console.log(dir);
+	//console.log(dir);
 	if (dir == "U"){shipIco=shipUp;}
 	else if (dir == "D"){shipIco=shipDown;}
 	else if (dir == "L"){shipIco=shipLeft;}
@@ -115,6 +115,12 @@ function update(){
 		prev = prev && distArr[i] > 100;
 	}
 	showStore = prev;
+	
+	var html = "Credits: " + money + "    Ship's Hold: ";
+	for (var i = 0; i < shipHold.length; i ++) {
+		html = html + cNames[i] + ": " + shipHold[i] + " ";
+	}
+	document.getElementById("stats").innerHTML = html;
 }
 
 function arrBool(foo, bar) {
@@ -170,15 +176,19 @@ function getPrice(cId, pId, isBuy) {
 
 function buy(cId, pId, amount) {
 	var price = getPrice(cId, pId, true);
-	if (maxHold - (shipHold[0] + shipHold[1] + shipHold[3] + shipHold[4] + shipHold[5] + shipHold[6] + shipHold[7] + shipHold[8] + shipHold[9] + shipHold[10]) >= amount) {
-		if (money >= price) {
-			shipHold[cId] + amount;
-			money - price;
+	var totalHold = 0;
+	for (var i = 0; i < shipHold.length; i++) {
+		totalHold += shipHold[i];
+	}
+	if (price <= money) {
+		if (amount <= maxHold - totalHold) {
+			shipHold[cId] += amount;
+			money = money - price;
 		} else {
-			alert("Not enough money");
+			alert("Not enough space in the hold!");
 		}
 	} else {
-		alert("Not enough inventory");
+		alert("Not enough money!");
 	}
 }
 
