@@ -191,6 +191,7 @@ function buy(cId, pId, amount) {
 	} else {
 		alert("Not enough money!");
 	}
+	loadStore(pId);
 }
 
 function sell(cId, pId, amount) {
@@ -201,6 +202,7 @@ function sell(cId, pId, amount) {
 	} else {
 		alert("Not enough of resource");
 	}
+	loadStore(pId);
 }
 
 function loadStore(pId) {
