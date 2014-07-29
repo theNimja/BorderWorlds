@@ -9,6 +9,7 @@
 	<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
 	<script>
 	function overlay() {
+		loadStore(0);
 		el = document.getElementById("overlay");
 		el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
 	}
@@ -21,11 +22,8 @@
 	<canvas id="canvas" width=1300 height=750></canvas>
 	<script src = "game.js"></script>
 	<div id="overlay">
-     <div>
+     <div id="store">
      
-          <h1>Commerce Center</h1>
-         
-          [<a href='#' onclick='overlay()'>Close</a>]
      </div>
 	</div>
 	[<a href='#' onclick='overlay()'>Show</a>]

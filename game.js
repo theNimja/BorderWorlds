@@ -102,18 +102,32 @@ function getMousePos(canvas, evt) {
 var maxHold=100;
 var money = 1000;
 var shipHold=[0,0,0,0,0,0,0,0,0,0];
+var cNames = ["Gold", "Oil", "Corn", "Cattle", "Coffee", "Sugar", "Copper", "Rice", "Palladium", "Natural Gas"];
+var cData = "Not Set yet";
+
+function loadData() {
+	getCommodityData();
+}
 
 function getPrice(cId, pId, isBuy) {
+	loadData();
 	var price = 0;
-	if (isBuy) {price = 2} else {price = -2}
-	return (price + getCommodityData()[cId]) * mods[cId][pId];
+	price += cData[cId];
+	price = price * mods[cId][pId]
+	if (!isBuy) {price = price * 0.8}
+	price = Math.round(price);
+	return price;
 }
 
 function buy(cId, pId, amount) {
-	if (shipHold[0] + shipHold[1] + shipHold[3] + shipHold[4] + shipHold[5] + shipHold[6] + shipHold[7] + shipHold[8] + shipHold[9] + shipHold[10] 
-		< maxHold - amount) {
-		var price = getPrice(cId, pId, true);
-		shipHold[cId] + amount;
+	var price = getPrice(cId, pId, true);
+	if (maxHold - (shipHold[0] + shipHold[1] + shipHold[3] + shipHold[4] + shipHold[5] + shipHold[6] + shipHold[7] + shipHold[8] + shipHold[9] + shipHold[10]) >= amount) {
+		if (money >= price) {
+			shipHold[cId] + amount;
+			money - price;
+		} else {
+			alert("Not enough money");
+		}
 	} else {
 		alert("Not enough inventory");
 	}
@@ -126,4 +140,14 @@ function sell(cId, pId, amount) {
 	} else {
 		alert("Not enough of resource");
 	}
+}
+
+function loadStore(pId) {
+	var html = "<h1>Commerce Center</h1><table><tr><td>Resource</td><td>Buy</td><td>Sell</td></tr>";
+	for (var i = 0; i < cNames.length; i ++) {
+		html = html + "<tr><td>" + cNames[i] + "</td><td><a href='#' onclick='buy(" + i + "," + pId + "," + "1)'>" + getPrice(i, pId, true) + 
+			"</a></td><td><a href='#' onclick='sell(" + i + "," + pId + "," + "1)'>" + getPrice(i, pId, false) +"</a></td></tr>";
+	}
+	html = html + "</table>[<a href='#' onclick='overlay()'>Close</a>]";
+	document.getElementById("store").innerHTML = html;
 }

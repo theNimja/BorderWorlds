@@ -4,7 +4,7 @@ function createCORSRequest(method, url) {
 
     // Check if the XMLHttpRequest object has a "withCredentials" property.
     // "withCredentials" only exists on XMLHTTPRequest2 objects.
-    xhr.open(method, url, true);
+    xhr.open(method, url, false);
 
   } else if (typeof XDomainRequest != "undefined") {
 
@@ -34,8 +34,9 @@ function getCommodityData() {
 		var dataArr = json.value.items;
 		
 		for (var i = 0; i < dataArr.length; i++) {
-			out[i] = [dataArr[i].Start + dataArr[i].Change]
+			out[i] = Number(dataArr[i].Start) + Number(dataArr[i].Change);
 		}
+		cData = out;
 	};
 
 	xhr.onerror = function() {
@@ -43,5 +44,4 @@ function getCommodityData() {
 	};
 
 	xhr.send();
-	return out;
 }
