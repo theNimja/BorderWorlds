@@ -1,6 +1,6 @@
 @font-face {
 font-family:'Space Age';
-src:font\Space Age.ttf;
+src:url("font/Space Age.ttf");
 }
 p {
 text-align:center;
