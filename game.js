@@ -103,16 +103,16 @@ function update(){
 	
 	for(i=0; i < planetIcos.length; i++){
 		var dist=Math.sqrt(Math.pow((planetXs[i]-shipX + 64),2)+Math.pow((planetYs[i]-shipY + 64),2));
-		if (dist <= 100 && showStore) {
+		if (dist <= 64 && showStore) {
 		//blah, dock,things.
 			overlay(i, false);
 		}
 		distArr[i] = dist;
 	}
 	
-	var prev = distArr[0] > 100;
+	var prev = distArr[0] > 64;
 	for (var i = 1; i < distArr.length; i++) {
-		prev = prev && distArr[i] > 100;
+		prev = prev && distArr[i] > 64;
 	}
 	showStore = prev;
 	
@@ -194,7 +194,7 @@ function buy(cId, pId, amount) {
 
 function sell(cId, pId, amount) {
 	if (shipHold[cId] >= amount) {
-		shipHold[cId] - amount;
+		shipHold[cId] = shipHold[cId] - amount;
 		money += getPrice(cId, pId, false);
 	} else {
 		alert("Not enough of resource");
