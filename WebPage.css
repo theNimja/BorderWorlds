@@ -1,12 +1,12 @@
 @font-face {
-font-family:'Space Age';
-src:font\Space Age.ttf;
+font-family:Space Age;
+src:url("font\Space Age.ttf");
 }
 p {
 text-align:center;
 }
 h1 {
-font-family:'Space Age', Courier New, Sans-serif;
+font-family:Space Age, Courier New, Sans-serif;
 font-size:3em;
 text-align:center;
 color:#FFFFFF;
@@ -22,4 +22,7 @@ margin-left:26.5vw;
 position:absolute;
 top:2vh;
 left:215px;
+}
+h4 {
+font-family:Space Age, Courier New, Sans-serif;
 }
