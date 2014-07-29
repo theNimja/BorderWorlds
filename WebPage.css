@@ -28,6 +28,11 @@ position:absolute;
 top:2vh;
 left:215px;
 }
+#imagetext {
+position:absolute;
+top:3vh;
+left:150px;
+}
 h4 {
 font-family:Space Age, Courier New, Sans-serif;
 }
