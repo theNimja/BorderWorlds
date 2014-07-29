@@ -68,6 +68,7 @@ function update(){
 	//blah, dock,things.
 	iJustDocked= true;
 	overlay();
+	planetNum=i;
 	}else if(dist>=100){
 	iJustDocked=false;
 	}
