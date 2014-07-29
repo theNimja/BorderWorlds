@@ -5,13 +5,14 @@
 
 	<title>Game</title>
 	<link rel="stylesheet" href="style.css">
-
-<script>
-function overlay() {
-	el = document.getElementById("overlay");
-	el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
-}
-</script>
+	<script src="parser.js"></script>
+	<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+	<script>
+	function overlay() {
+		el = document.getElementById("overlay");
+		el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+	}
+	</script>
 
 	
 </head>
@@ -30,6 +31,7 @@ function overlay() {
           [<a href='#' onclick='overlay()'>Close</a>]
      </div>
 	</div>
+	[<a href='#' onclick='overlay()'>Show</a>]
 
 	
 	
