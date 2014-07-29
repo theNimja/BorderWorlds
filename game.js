@@ -8,6 +8,7 @@ var waypointY;
 
 
 //Set up images
+//Note the Accent: We are limited on space, only the 1200 x 600 rect
 imgShip = new Image();
 imgShip.src = "images/protoShip.png";
 imgShip.addEventListener("load", init, false);
@@ -66,7 +67,7 @@ function update(){
 	
 	
 }
-//getting info n mouse
+//getting info on mouse
 
 canvas.onmousedown = function(e){
 
