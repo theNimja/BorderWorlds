@@ -38,7 +38,7 @@ shipDownLeft.src= "images/shipFullLD.png";
 shipDownLeft.addEventListener("load",init,false);
 shipUpRight=new Image();
 shipUpRight.src= "images/shipFullRU.png";
-shipupRight.addEventListener("load",init,false);
+shipUpRight.addEventListener("load",init,false);
 shipDownRight=new Image();
 shipDownRight.src= "images/shipFullRD.png";
 shipDownRight.addEventListener("load",init,false);
@@ -85,11 +85,19 @@ function update(){
 	if (waypointY < shipY){shipY--;dir+="U";}
 	if (waypointY > shipY){shipY++;dir+="D";}
 	}
+	if (dir=="U"){shipIco=shipUp;}
+	else if (dir == "D"){shipIco=shipDown;}
+	else if (dir == "L"){shipIco=shipLeft;}
+	else if (dir == "R"){shipIco=shipRight;}
+	else if (dir == "RU"){shipIco=shipUpRight;}
+	else if (dir == "LU"){shipIco=shipUpLeft;}
+	else if (dir == "RD"){shipIco=shipDownRight;}
+	else if (dir == "LD"){shipIco=shipDownLeft;}
 	for (i = 0; i < planetIcos.length; i++){
 	context.drawImage(planetIcos[i],planetXs[i],planetYs[i]);
 	}
 	//draw the ship
-	context.drawImage(imgShip,shipX,shipY);
+	context.drawImage(shipIco,shipX,shipY,16,16);
 	
 	for(i=0; i < planetIcos.length; i++){
 		var dist=Math.sqrt(Math.pow((planetXs[i]-shipX + 64),2)+Math.pow((planetYs[i]-shipY + 64),2));
