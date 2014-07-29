@@ -24,7 +24,7 @@ function createCORSRequest(method, url) {
 var text = "Not Set Yet";
 var out = new Array();
 
-function getData() {
+function getCommodityData() {
 	var url = "http://pipes.yahoo.com/pipes/pipe.run?_id=8aecae73d4d2627721b730c5c3bdb694&_render=json";
 	var xhr = createCORSRequest('GET', url);
 	// Response handlers.
@@ -51,4 +51,3 @@ function getData() {
 	xhr.send();
 	return out;
 }
-console.log(getData());
