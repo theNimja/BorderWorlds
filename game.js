@@ -60,6 +60,15 @@ function update(){
 	//draw the ship
 	context.drawImage(imgShip,shipX,shipY);
 	
+	for(i=0; i < planetIcos.length; i++){
+	dist=Math.sqrt(Math.pow(Math.abs(planetXs[i]-shipX),2)+Math.pow(Math.abs(planetYs[i]-shipY),2));
+	console.log(dist);
+	if (dist<200){
+	//blah, dock,things.
+	
+	
+	}
+	}
 	
 	
 	
