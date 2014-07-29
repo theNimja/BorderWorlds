@@ -31,7 +31,7 @@ var requestAnimFrame=
 //important information on the ship	
 var shipX = 65;
 var shipY = 65;
-
+var iJustDocked=false;
 
 var planetXs=[100,250];
 var planetYs=[200,506];
@@ -60,24 +60,25 @@ function update(){
 	context.drawImage(imgShip,shipX,shipY);
 	
 	for(i=0; i < planetIcos.length; i++){
-	dist=Math.sqrt(Math.pow(Math.abs(planetXs[i]-shipX),2)+Math.pow(Math.abs(planetYs[i]-shipY),2));
-		
-	if (dist<200){
+	dist=Math.sqrt(Math.pow((planetXs[i]-shipX),2)+Math.pow((planetYs[i]-shipY),2));
+	console.log(iJustDocked);
+	console.log(dist);
+	if (dist<100 && iJustDocked == false){
+	
 	//blah, dock,things.
-	
-	
+	iJustDocked= true;
+	overlay();
+	}else if(dist>=100){
+	iJustDocked=false;
 	}
 	
-	console.log(getCommodityData());
 	}
-	
-	
 	
 	
 	
 	
 }
-//getting info on mouse
+//getting info n mouse
 
 canvas.onmousedown = function(e){
 
