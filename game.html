@@ -5,7 +5,7 @@
 
 	<title>Game</title>
 	<link rel="stylesheet" href="style.css">
-	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"></link>
+
 <script>
 function overlay() {
 	el = document.getElementById("overlay");
@@ -15,22 +15,18 @@ function overlay() {
 
 	
 </head>
-<body>
-<div id=content>
-<h1 style="text-align:center;">
-Space Traders
-</h1>
-</div>
+<body  oncontextmenu="return false;">
+
+	
 
 
-
-	<canvas id="canvas" width=1200 height=600></canvas>
+	<canvas id="canvas" width=1300 height=750></canvas>
 	<script src = "game.js"></script>
 	<div id="overlay">
      <div>
      
           <h1>Commerce Center</h1>
-          <p>Contract pls?</p>
+         
           [<a href='#' onclick='overlay()'>Close</a>]
      </div>
 	</div>
@@ -38,7 +34,7 @@ Space Traders
 	
 	
 </div>
-<a href='#' onclick='overlay()'>Click here to show the overlay</a>
+
 </body>
 
 </html>
