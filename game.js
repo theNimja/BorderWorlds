@@ -38,6 +38,7 @@ var shipY = 65;
 var planetXs=[100,250];
 var planetYs=[200,506];
 var planetIcos=[imgProtoPlanet,imgProtoPlanet];
+var mods=[[1,1.2],[2,0.8],[0.2,1.4],[1.4,1.3],[2.2,1.4],[0.3333,1],[0.2,1.5],[2.5,0.31415],[0.7,1.1],[1,1.2]]'
 //banana banana banana
 function init(){
 	requestAnimFrame(update);
@@ -62,12 +63,14 @@ function update(){
 	
 	for(i=0; i < planetIcos.length; i++){
 	dist=Math.sqrt(Math.pow(Math.abs(planetXs[i]-shipX),2)+Math.pow(Math.abs(planetYs[i]-shipY),2));
-	console.log(dist);
+		
 	if (dist<200){
 	//blah, dock,things.
 	
 	
 	}
+	
+	console.log(getCommodityData());
 	}
 	
 	
