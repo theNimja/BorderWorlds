@@ -79,13 +79,15 @@ function update(){
 	
 	requestAnimFrame(update);
 	//move the ship
+	dir="";
 	if (waypointX != shipX || waypointY != shipY){
-	if (waypointX < shipX){shipX--;dir+="R";}
-	if (waypointX > shipX){shipX++;dir+="L";}
+	if (waypointX < shipX){shipX--;dir+="L";}
+	if (waypointX > shipX){shipX++;dir+="R";}
 	if (waypointY < shipY){shipY--;dir+="U";}
 	if (waypointY > shipY){shipY++;dir+="D";}
 	}
-	if (dir=="U"){shipIco=shipUp;}
+	console.log(dir);
+	if (dir == "U"){shipIco=shipUp;}
 	else if (dir == "D"){shipIco=shipDown;}
 	else if (dir == "L"){shipIco=shipLeft;}
 	else if (dir == "R"){shipIco=shipRight;}
