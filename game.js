@@ -29,8 +29,6 @@ var requestAnimFrame=
 	};
 	
 //important information on the ship	
-var maxHold=100;
-var shipHold=[];
 var shipX = 65;
 var shipY = 65;
 
@@ -94,4 +92,36 @@ function getMousePos(canvas, evt) {
       x: evt.clientX - rect.left,
       y: evt.clientY - rect.top
     };
+}
+/*
+	price system
+*/
+
+var maxHold=100;
+var money = 1000;
+var shipHold=[0,0,0,0,0,0,0,0,0,0];
+
+function getPrice(cId, pId, isBuy) {
+	var price = 0;
+	if (isBuy) {price = 2} else {price = -2}
+	return (price + getCommodityData()[cId]) * mods[cId][pId];
+}
+
+function buy(cId, pId, amount) {
+	if (shipHold[0] + shipHold[1] + shipHold[3] + shipHold[4] + shipHold[5] + shipHold[6] + shipHold[7] + shipHold[8] + shipHold[9] + shipHold[10] 
+		< maxHold - amount) {
+		var price = getPrice(cId, pId, true);
+		shipHold[cId] + amount;
+	} else {
+		alert("Not enough inventory");
+	}
+}
+
+function sell(cId, pId, amount) {
+	if (shipHold[cId] >= amount) {
+		shipHold[cId] - amount;
+		money += getPrice(cId, pId, false);
+	} else {
+		alert("Not enough of resource");
+	}
 }
