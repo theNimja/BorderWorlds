@@ -45,7 +45,7 @@ function getCommodityData() {
 	};
 
 	xhr.onerror = function() {
-		alert('Woops, there was an error making the request.');
+		console.log('Woops, there was an error making the request.');
 	};
 
 	xhr.send();
