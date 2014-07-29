@@ -1,6 +1,10 @@
 @font-face {
 font-family:"Space Age";
+<<<<<<< HEAD
 src: url(font\Space Age.ttf
+=======
+src:url(font\Space Age.ttf);
+>>>>>>> origin/master
 }
 p {
 text-align:center;
