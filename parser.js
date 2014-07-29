@@ -34,13 +34,7 @@ function getCommodityData() {
 		var dataArr = json.value.items;
 		
 		for (var i = 0; i < dataArr.length; i++) {
-			out[i] = [dataArr[i].Commodity, dataArr[i].Start, dataArr[i].Change]
-		}
-		
-		for (var i = 0; i < dataArr.length; i++) {
-			for (var j = 0; j < dataArr[i].length; j++) {
-				console.log(dataArr[i][j]);
-			}
+			out[i] = [dataArr[i].Start + dataArr[i].Change]
 		}
 	};
 
