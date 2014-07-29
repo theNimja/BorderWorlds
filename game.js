@@ -15,7 +15,37 @@ imgShip.addEventListener("load", init, false);
 imgProtoPlanet= new Image();
 imgProtoPlanet.src= "images/protoPlanet.png";
 imgProtoPlanet.addEventListener("load", init, false);
+shipUp=new Image();
+shipUp.src= "images/shipFullU.png";
+shipUp.addEventListener("load",init,false);
+shipDown=new Image();
+shipDown.src= "images/shipFullD.png";
+shipDown.addEventListener("load",init,false);
+shipLeft=new Image();
+shipLeft.src= "images/shipFullL.png";
+shipLeft.addEventListener("load",init,false);
+shipRight=new Image();
+shipRight.src= "images/shipFullR.png";
+shipRight.addEventListener("load",init,false);
 
+//diagonals
+
+shipUpLeft=new Image();
+shipUpLeft.src= "images/shipFullLU.png";
+shipUpLeft.addEventListener("load",init,false);
+shipDownLeft=new Image();
+shipDownLeft.src= "images/shipFullLD.png";
+shipDownLeft.addEventListener("load",init,false);
+shipUpRight=new Image();
+shipUpRight.src= "images/shipFullRU.png";
+shipupRight.addEventListener("load",init,false);
+shipDownRight=new Image();
+shipDownRight.src= "images/shipFullRD.png";
+shipDownRight.addEventListener("load",init,false);
+
+
+var shipIco;
+var dir="U";
 
 //banana banana banana
 var requestAnimFrame=
@@ -50,10 +80,10 @@ function update(){
 	requestAnimFrame(update);
 	//move the ship
 	if (waypointX != shipX || waypointY != shipY){
-	if (waypointX < shipX){shipX--;}
-	if (waypointX > shipX){shipX++;}
-	if (waypointY < shipY){shipY--;}
-	if (waypointY > shipY){shipY++;}
+	if (waypointX < shipX){shipX--;dir+="R";}
+	if (waypointX > shipX){shipX++;dir+="L";}
+	if (waypointY < shipY){shipY--;dir+="U";}
+	if (waypointY > shipY){shipY++;dir+="D";}
 	}
 	for (i = 0; i < planetIcos.length; i++){
 	context.drawImage(planetIcos[i],planetXs[i],planetYs[i]);
