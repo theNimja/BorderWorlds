@@ -1,10 +1,18 @@
-p
-{
+p {
 text-align:center;
 }
-h1
-{
-font-family:Courier New;
+h1 {
+font-family:Space Age;
 font-size:3em;
 text-align:center;
+}
+.image { 
+position:relative;
+margin-left:26.5vw;
+}
+.imagetext { 
+position:absolute;
+top:0vh;
+left:230px;
+color:#FFFFFF;
 }
