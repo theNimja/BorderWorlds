@@ -154,8 +154,8 @@ function sell(cId, pId, amount) {
 function loadStore(pId) {
 	var html = "<h1>Commerce Center</h1><table><tr><td>Resource</td><td>Buy</td><td>Sell</td></tr>";
 	for (var i = 0; i < cNames.length; i ++) {
-		html = html + "<tr><td>" + cNames[i] + "</td><td><a href='#' onclick='buy(" + i + "," + pId + "," + "1)'>" + getPrice(i, pId, true) + 
-			"</a></td><td><a href='#' onclick='sell(" + i + "," + pId + "," + "1)'>" + getPrice(i, pId, false) +"</a></td></tr>";
+		html = html + "<tr><td>" + cNames[i] + "</td><td><button onclick='buy(" + i + "," + pId + "," + "1)'>" + getPrice(i, pId, true) + 
+			"</a></td><td><button onclick='sell(" + i + "," + pId + "," + "1)'>" + getPrice(i, pId, false) +"</a></td></tr>";
 	}
 	html = html + "</table>[<a href='#' onclick='overlay()'>Close</a>]";
 	document.getElementById("store").innerHTML = html;
