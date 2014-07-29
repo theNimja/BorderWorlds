@@ -184,6 +184,7 @@ function buy(cId, pId, amount) {
 		if (amount <= maxHold - totalHold) {
 			shipHold[cId] += amount;
 			money = money - price;
+			mods[cId][pId] = mods[cId][pId] * 1.1;
 		} else {
 			alert("Not enough space in the hold!");
 		}
@@ -196,7 +197,7 @@ function sell(cId, pId, amount) {
 	if (shipHold[cId] >= amount) {
 		shipHold[cId] = shipHold[cId] - amount;
 		money += getPrice(cId, pId, false);
-		mods[cId][pId] = mods[cId][pId] * 0.8;
+		mods[cId][pId] = mods[cId][pId] * 0.9;
 	} else {
 		alert("Not enough of resource");
 	}
