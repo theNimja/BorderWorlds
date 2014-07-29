@@ -31,7 +31,9 @@ var requestAnimFrame=
 //important information on the ship	
 var shipX = 65;
 var shipY = 65;
-var iJustDocked=false;
+var showStore=true;
+
+var distArr = new Array();
 
 var planetXs=[100,250];
 var planetYs=[200,506];
@@ -60,25 +62,32 @@ function update(){
 	context.drawImage(imgShip,shipX,shipY);
 	
 	for(i=0; i < planetIcos.length; i++){
-	dist=Math.sqrt(Math.pow((planetXs[i]-shipX),2)+Math.pow((planetYs[i]-shipY),2));
-	console.log(iJustDocked);
-	console.log(dist);
-	if (dist<100 && iJustDocked == false){
-	
-	//blah, dock,things.
-	iJustDocked= true;
-	overlay();
-	planetNum=i;
-	}else if(dist>=100){
-	iJustDocked=false;
+		var dist=Math.sqrt(Math.pow((planetXs[i]-shipX + 64),2)+Math.pow((planetYs[i]-shipY + 64),2));
+		if (dist <= 100 && showStore) {
+		//blah, dock,things.
+			overlay(i, false);
+		}
+		distArr[i] = dist;
 	}
 	
+	var prev = distArr[0] > 100;
+	for (var i = 1; i < distArr.length; i++) {
+		prev = prev && distArr[i] > 100;
 	}
-	
-	
-	
-	
+	showStore = prev;
 }
+
+function arrBool(foo, bar) {
+	return foo && bar;
+}
+
+function overlay(pId, bool) {
+	loadStore(pId);
+	el = document.getElementById("overlay");
+	el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+	showStore = bool;
+}
+
 //getting info n mouse
 
 canvas.onmousedown = function(e){
