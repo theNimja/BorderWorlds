@@ -196,6 +196,7 @@ function sell(cId, pId, amount) {
 	if (shipHold[cId] >= amount) {
 		shipHold[cId] = shipHold[cId] - amount;
 		money += getPrice(cId, pId, false);
+		mods[cId][pId] = mods[cId][pId] * 0.8;
 	} else {
 		alert("Not enough of resource");
 	}
