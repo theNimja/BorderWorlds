@@ -5,6 +5,10 @@ h1 {
 font-family:Space Age;
 font-size:3em;
 text-align:center;
+color:#FFFFFF;
+}
+#title {
+font-size:7em;
 }
 .image { 
 position:relative;
@@ -14,5 +18,4 @@ margin-left:26.5vw;
 position:absolute;
 top:2vh;
 left:215px;
-color:#FFFFFF;
 }
