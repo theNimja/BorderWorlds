@@ -153,16 +153,12 @@ function update(){
 	}
 	showStore = prev;
 	
-	var html = "Credits: " + money + "    Ship's Hold: ";
+	var html = "Credits: " + money + "&nbsp&nbsp|&nbsp&nbsp";
 	for (var i = 0; i < shipHold.length; i ++) {
-		html = html + cNames[i] + ": " + shipHold[i] + " ";
+		html = html + cNames[i] + ": " + shipHold[i] + "&nbsp&nbsp|&nbsp&nbsp";
 	}
-	html+="Ship's Hull Integrity:" +shipHull;
+	html+="Hull Integrity: " +shipHull;
 	document.getElementById("stats").innerHTML = html;
-}
-
-function arrBool(foo, bar) {
-	return foo && bar;
 }
 
 function overlay(pId, bool) {
