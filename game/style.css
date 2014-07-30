@@ -28,12 +28,16 @@ a{
 
 }
 #overlay div {
-     width:300px;
-     margin: 82px auto;
      text-align:center;
 	 font-family:Futura, Courier New, Sans-serif;
+	 background-image: url(images/CommerceBackground.png);
+	 background-repeat:no-repeat;
+	 background-position:center;
+	 padding-top: 10%;
+	 padding-bottom: 10%;
 }
 #overlay {
+
      visibility: hidden;
      position: absolute;
      left: 0px;
@@ -42,9 +46,7 @@ a{
      height:100%;
      text-align:center;
      z-index: 1000;
-	 background-image: url(images/CommerceBackground.png);
-	 background-repeat:no-repeat;
-	 background-position:center; 
+	 vertical-align: middle;
 }	
 #death div {
      width:300px;
