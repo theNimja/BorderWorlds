@@ -7,13 +7,21 @@ font-family:Futura;
 src:url(../font/Futura.ttf) format("opentype");
 }
 #rightbar{
-
 float:right;
+margin-right:300px;
+margin-top:30px;
+}
+#rightbar1 {
+position:fixed;
 }
 #text{
 float:left;
-
-
+}
+.navbar {
+float:left;
+font-size:3em;
+font-family:Futura;
+text-decoration:none;
 }
 .newboxes {
 	height:1024px;
@@ -23,6 +31,19 @@ float:left;
 }
 p {
 	font-family:Futura;
-	color:#AAAAAA;
+	font-size:1.5em;
+	color:#000099;
 	padding:20px;	
+}
+#story1 {
+margin-top:30px;
+margin-left:20px;
+}
+#controls1 {
+margin-top:100px;
+margin-left:20px;
+}
+#explanation1 {
+margin-top:170px;
+margin-left:20px;
 }
