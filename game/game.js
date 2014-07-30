@@ -274,10 +274,10 @@ window.setInterval(function() {
 }, 90000);
 
 function loadStore(pId) {
-	var html = "<h1>Commerce Center</h1><table><tr><td>Resource</td><td>Buy</td><td>Sell</td></tr>";
+	var html = "<h1>Commerce Center</h1><table class='commerce'><tr><td>Resource</td><td>Buy</td><td>Sell</td></tr>";
 	for (var i = 0; i < cNames.length; i ++) {
-		html = html + "<tr><td>" + cNames[i] + "</td><td><a href='#' onclick='buy(" + i + "," + pId + "," + "1)'>" + getPrice(i, pId, true) + 
-			"</a></td><td><a href='#' onclick='sell(" + i + "," + pId + "," + "1)'>" + getPrice(i, pId, false) +"</a></td></tr>";
+		html = html + "<tr><td>" + cNames[i] + "</td><td  class='imageContainer'><a href='#' onclick='buy(" + i + "," + pId + "," + "1)'>" + getPrice(i, pId, true) + 
+			"</a></td><td class='imageContainer'><a href='#' onclick='sell(" + i + "," + pId + "," + "1)'>" + getPrice(i, pId, false) +"</a></td></tr>";
 	}
 	html = html + "<tr><a href='#' onclick='repair()'>Repair</a></tr></table>[<a href='#' onclick='overlay()'>Close</a>]";
 	document.getElementById("store").innerHTML = html;

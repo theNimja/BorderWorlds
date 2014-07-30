@@ -7,13 +7,28 @@
 	<link rel="stylesheet" href="style.css">
 	<script src="parser.js"></script>
 	<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+<<<<<<< HEAD
 	
 
 	
 </head>
 <body oncontextmenu="return false;">
+=======
+	<SCRIPT LANGUAGE="JavaScript">
+var scrl = "Traders of the Border Worlds --- ";
+function scrlsts() {
+ scrl = scrl.substring(1, scrl.length) + scrl.substring(0, 1);
+ document.title = scrl;
+ setTimeout("scrlsts()", 300);
+ }
+</script>
+
+	
+</head>
+<body oncontextmenu="return false;" onLoad="scrlsts()" style="background-color:blue;">
+>>>>>>> origin/master
 <embed src="inSpace.mp3" autostart="true" loop="true" hidden="true">
-<!--Muisc by nosoapradio.us-->
+<!--Music by nosoapradio.us-->
 	<div id="stats"></div>
 	<canvas id="canvas" width=1300 height=740></canvas>
 	<script src = "game.js"></script>
