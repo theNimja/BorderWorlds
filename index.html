@@ -2,12 +2,17 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="WebPage.css">
-<title>
-Traders of the Border Worlds
-</title>
+<SCRIPT LANGUAGE="JavaScript">
+var scrl = " Traders of the Border Worlds ";
+function scrlsts() {
+ scrl = scrl.substring(1, scrl.length) + scrl.substring(0, 1);
+ document.title = scrl;
+ setTimeout("scrlsts()", 300);
+ }
+</script>
 <link rel="icon" type="image/ico" href="images\SpaceTraders.ico">
 </head>
-<body background="images\cover.jpg">
+<body background="images\cover.jpg" onLoad="scrlsts()">
 <h1 id="title">
 Traders of the Border Worlds
 </h1>
@@ -15,7 +20,7 @@ Traders of the Border Worlds
 Quantum Granite
 </h4>
 <p>
-<a href="game/game.html">
+<a href="game\game.html">
 <div class="image">
 <img src="images\UIButton.png"/>
 <h1 class="imagetext">
@@ -25,7 +30,7 @@ Play
 </a>
 </p>
 <p>
-<a href="info/index.html">
+<a href="info\index.html">
 <div class="image">
 <img src="images\UIButton.png"/>
 <h1 id="imagetext">
