@@ -12,5 +12,14 @@ float:left;
 
 }
 .newboxes {
+	height:1024px;
+	width:603px;
     display: none;
+    background-image:url(images/box.png);
+}
+p {
+	color:#AAAAAA;
+	padding:20px;	
+	
+
 }
