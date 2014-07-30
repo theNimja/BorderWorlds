@@ -285,6 +285,6 @@ function loadStore(pId) {
 		html = html + "<tr><td>" + cNames[i] + "</td><td  class='imageContainer'><a href='#' onclick='buy(" + i + "," + pId + "," + "1)'>" + getPrice(i, pId, true) + 
 			"</a></td><td class='imageContainer'><a href='#' onclick='sell(" + i + "," + pId + "," + "1)'>" + getPrice(i, pId, false) +"</a></td></tr>";
 	}
-	html = html + "<tr><td class='imageContainer'><a href='#' onclick='repair()'>Repair</a></td><td><a href='#' onclick='overlay()'>Close</a></td></tr></table>";
+	html = html + "<tr><td class='imageContainer'><a href='#' onclick='repair()'>Repair</a></td><td class='imageContainer'><a href='#' onclick='overlay()'>Close</a></td></tr></table>";
 	document.getElementById("store").innerHTML = html;
 }
