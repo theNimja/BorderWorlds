@@ -105,12 +105,29 @@ function update(){
 	else if (dir == "LD"){shipIco=shipDownLeft;}
 	else{shipIco=shipUp;}
 	
+	
+	
 	//draw planets
 	for (i = 0; i < planetIcos.length; i++){
 	context.drawImage(planetIcos[i],planetXs[i],planetYs[i],64,64);
 	}
 	//draw the ship
 	context.drawImage(shipIco,shipX,shipY,16,16);
+	//draw the asteroid fields
+	for (i = 0; i < asteroidXs.length; i++){
+	context.drawImage(asteroidField,asteroidXs[i],asteroidYs[i],32,32);
+	}
+	
+	
+	for(i=0;i<asteroidXs.length;i++){
+		var astDist=Math.sqrt(Math.pow((asteroidXs[i]-shipX + 16),2)+Math.pow((asteroidYs[i]-shipY + 16),2));
+		if (astDist <= 32) {
+		//get damaged
+		shipHull--;
+		}
+		
+	}
+	
 	
 	for(i=0; i < planetIcos.length; i++){
 		var dist=Math.sqrt(Math.pow((planetXs[i]-shipX + 32),2)+Math.pow((planetYs[i]-shipY + 32),2));
@@ -120,7 +137,7 @@ function update(){
 		}
 		distArr[i] = dist;
 	}
-	for(i=0;i<asteroidXs;){}
+
 	
 	var prev = distArr[0] > 64;
 	for (var i = 1; i < distArr.length; i++) {
