@@ -4,7 +4,7 @@ var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
 var waypointX;
 var waypointY;
-
+var shipHull=900;
 
 
 //Set up images
@@ -43,6 +43,10 @@ shipDownRight=new Image();
 shipDownRight.src= "images/shipFullRD.png";
 shipDownRight.addEventListener("load",init,false);
 
+asteroidField= new Image();
+asteroidField.src= "images/asteroid.png";
+asteroidField.addEventListener("load",init,false);
+
 
 var shipIco;
 var dir="U";
@@ -67,6 +71,8 @@ var distArr = new Array();
 
 var planetXs=[100,250];
 var planetYs=[200,506];
+var asteroidXs=[150,400];
+var asteroidYs=[350,200];
 var planetIcos=[imgProtoPlanet,imgProtoPlanet];
 var origMods = [[1,1.2],[2,0.8],[0.2,1.4],[1.4,1.3],[2.2,1.4],[0.3333,1],[0.2,1.5],[2.5,0.31415],[0.7,1.1],[1,1.2]];
 var mods=[[1,1.2],[2,0.8],[0.2,1.4],[1.4,1.3],[2.2,1.4],[0.3333,1],[0.2,1.5],[2.5,0.31415],[0.7,1.1],[1,1.2]];
@@ -97,14 +103,17 @@ function update(){
 	else if (dir == "LU"){shipIco=shipUpLeft;}
 	else if (dir == "RD"){shipIco=shipDownRight;}
 	else if (dir == "LD"){shipIco=shipDownLeft;}
+	else{shipIco=shipUp;}
+	
+	//draw planets
 	for (i = 0; i < planetIcos.length; i++){
-	context.drawImage(planetIcos[i],planetXs[i],planetYs[i]);
+	context.drawImage(planetIcos[i],planetXs[i],planetYs[i],64,64);
 	}
 	//draw the ship
 	context.drawImage(shipIco,shipX,shipY,16,16);
 	
 	for(i=0; i < planetIcos.length; i++){
-		var dist=Math.sqrt(Math.pow((planetXs[i]-shipX + 64),2)+Math.pow((planetYs[i]-shipY + 64),2));
+		var dist=Math.sqrt(Math.pow((planetXs[i]-shipX + 32),2)+Math.pow((planetYs[i]-shipY + 32),2));
 		if (dist <= 64 && showStore) {
 		//blah, dock,things.
 			overlay(i, false);
