@@ -48,6 +48,9 @@ asteroidField= new Image();
 asteroidField.src= "images/asteroid.png";
 asteroidField.addEventListener("load",init,false);
 
+bg=new Image();
+bg.src="images/bg.png";
+bg.addEventListener("load",init,false);
 
 var shipIco;
 var dir="U";
@@ -87,6 +90,7 @@ function update(){
 	context.clearRect(0,0,canvas.width,canvas.height)
 	
 	requestAnimFrame(update);
+	context.drawImage(bg,0,0,1300,740);
 	//move the ship
 	dir="";
 	if (waypointX != shipX || waypointY != shipY){
