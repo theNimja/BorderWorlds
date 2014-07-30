@@ -26,7 +26,6 @@ text-decoration:none;
 .newboxes {
 	height:1024px;
 	width:603px;
-    display: none;
     background-image:url(images/box.png);
 }
 p {
@@ -45,6 +44,10 @@ margin-left:20px;
 }
 #explanation1 {
 margin-top:170px;
+margin-left:20px;
+}
+#back1 {
+margin-top:250px;
 margin-left:20px;
 }
 a {
