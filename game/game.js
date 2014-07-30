@@ -120,6 +120,7 @@ function update(){
 		}
 		distArr[i] = dist;
 	}
+	for(i=0;i<asteroidXs;){}
 	
 	var prev = distArr[0] > 64;
 	for (var i = 1; i < distArr.length; i++) {
@@ -131,6 +132,7 @@ function update(){
 	for (var i = 0; i < shipHold.length; i ++) {
 		html = html + cNames[i] + ": " + shipHold[i] + " ";
 	}
+	html+="Ship's Hull Integrity:" +shipHull;
 	document.getElementById("stats").innerHTML = html;
 }
 
