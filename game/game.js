@@ -125,6 +125,13 @@ function update(){
 		if (astDist <= 32) {
 		//get damaged
 		shipHull--;
+		if (shipHull<= 0){
+		shipX=999999999;
+		shipY=999999999;
+		death();
+		
+		
+		}
 		}
 		
 	}
@@ -163,6 +170,13 @@ function overlay(pId, bool) {
 	el = document.getElementById("overlay");
 	el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
 	showStore = bool;
+}
+
+function death() {
+	
+	el = document.getElementById("death");
+	el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+
 }
 
 //getting info n mouse
