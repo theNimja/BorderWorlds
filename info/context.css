@@ -1,6 +1,10 @@
 @font-face {
 font-family:Spaceage;
-src:url(font/SpaceAge.ttf) format("opentype");
+src:url(../font/SpaceAge.ttf) format("opentype");
+}
+@font-face {
+font-family:Futura;
+src:url(../font/Futura.ttf) format("opentype");
 }
 #rightbar{
 
@@ -18,6 +22,7 @@ float:left;
     background-image:url(images/box.png);
 }
 p {
+	font-family:Futura;
 	color:#AAAAAA;
 	padding:20px;	
 	

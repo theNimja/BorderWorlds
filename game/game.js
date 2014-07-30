@@ -140,6 +140,11 @@ function update(){
 		}
 		
 	}
+	if (money==0 && (shipHold[0] && shipHold[1] && shipHold[2] && shipHold[3] && shipHold[4] && shipHold[5] && shipHold[6] && shipHold[7] && shipHold[8] && shipHold[9])==0){
+	death();
+	
+	
+	}
 	
 	
 	for(i=0; i < planetIcos.length; i++){
