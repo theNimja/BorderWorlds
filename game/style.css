@@ -17,7 +17,7 @@ canvas{
 }
 
 a{
-{
+
      width: 60px;
      height: 25px;
      background-image: url(images/button.png);
@@ -25,7 +25,7 @@ a{
      font-family: Tahoma, Geneva, sans-serif;
      font-weight: bold;
      text-align: center; 
-}
+
 
 }
 #overlay div {
@@ -86,5 +86,4 @@ a{
 @media (max-width: 600px) {
   #stats {
 	 position: fixed;
-}
 }
