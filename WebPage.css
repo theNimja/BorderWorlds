@@ -1,6 +1,6 @@
 @font-face {
 font-family:Spaceage;
-src:url(font\SpaceAge.ttf) format("opentype");
+src:url(font/SpaceAge.ttf) format("opentype");
 }
 p {
 text-align:center;
