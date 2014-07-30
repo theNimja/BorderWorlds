@@ -73,11 +73,12 @@ var showStore=true;
 
 var distArr = new Array();
 
-var planetXs=[100,250];
-var planetYs=[200,506];
+var planetXs=[100,250,632,853,443,954];
+var planetYs=[200,506,232,467,500,130];
+var pNames=["Zardos", "GF-12756"];
 var asteroidXs=[150,400];
 var asteroidYs=[350,200];
-var planetIcos=[imgProtoPlanet,imgProtoPlanet];
+var planetIcos=[imgProtoPlanet,imgProtoPlanet,imgProtoPlanet,imgProtoPlanet,imgProtoPlanet,imgProtoPlanet];
 var origMods = [[1,1.2],[2,0.8],[0.2,1.4],[1.4,1.3],[2.2,1.4],[0.3333,1],[0.2,1.5],[2.5,0.31415],[0.7,1.1],[1,1.2]];
 var mods=[[1,1.2],[2,0.8],[0.2,1.4],[1.4,1.3],[2.2,1.4],[0.3333,1],[0.2,1.5],[2.5,0.31415],[0.7,1.1],[1,1.2]];
 
@@ -176,7 +177,7 @@ function death() {
 	
 	el = document.getElementById("death");
 	el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
-
+	document.getElementById("stats").style.visibility = "hidden";
 }
 
 //getting info n mouse
@@ -274,11 +275,11 @@ window.setInterval(function() {
 }, 90000);
 
 function loadStore(pId) {
-	var html = "<h1>Commerce Center</h1><table class='commerce'><tr><td>Resource</td><td>Buy</td><td>Sell</td></tr>";
+	var html = "<h1>" + pNames[pId] + "</h1><h2>Commerce Center</h2><table class='commerce'><tr><td>Resource</td><td>Buy</td><td>Sell</td></tr>";
 	for (var i = 0; i < cNames.length; i ++) {
 		html = html + "<tr><td>" + cNames[i] + "</td><td  class='imageContainer'><a href='#' onclick='buy(" + i + "," + pId + "," + "1)'>" + getPrice(i, pId, true) + 
 			"</a></td><td class='imageContainer'><a href='#' onclick='sell(" + i + "," + pId + "," + "1)'>" + getPrice(i, pId, false) +"</a></td></tr>";
 	}
-	html = html + "<tr><a href='#' onclick='repair()'>Repair</a></tr></table>[<a href='#' onclick='overlay()'>Close</a>]";
+	html = html + "<tr><td class='imageContainer'><a href='#' onclick='repair()'>Repair</a></td></tr></table><a href='#' onclick='overlay()'>Close</a>";
 	document.getElementById("store").innerHTML = html;
 }
