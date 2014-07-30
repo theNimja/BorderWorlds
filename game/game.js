@@ -219,7 +219,7 @@ window.setInterval(function() {
 			}
 		}
 	}
-}, 10000);
+}, 90000);
 
 function loadStore(pId) {
 	var html = "<h1>Commerce Center</h1><table><tr><td>Resource</td><td>Buy</td><td>Sell</td></tr>";
