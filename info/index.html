@@ -2,22 +2,41 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="context.css">
-<SCRIPT LANGUAGE="JavaScript">
-var scrl = "Traders of the Border Worlds --- ";
-function scrlsts() {
- scrl = scrl.substring(1, scrl.length) + scrl.substring(0, 1);
- document.title = scrl;
- setTimeout("scrlsts()", 300);
- }
-</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <link rel="icon" type="image/ico" href="..\images\SpaceTraders.ico">
+
+<script type="text/javascript">
+function showonlyone(thechosenone) {
+     $('.newboxes').each(function(index) {
+          if ($(this).attr("id") == thechosenone) {
+               $(this).slideDown(200);
+          }
+          else {
+               $(this).slideUp(600);
+          }
+     });
+}
+
+</script>
 </head>
-<body onLoad="scrlsts()">
+<body >
 <embed src="..\index.mp3" autostart="true" loop="true" hidden="true">
 <!--Music by nosoapradio.us-->
 <div id="rightbar" width="400px" height="100vh">
+<a href="#" onclick="javascript:showonlyone('story');">story<a>
 </div>
 <div id="text">
+<div id= "story" class="newboxes">
+POTATO
+
+</div>
+
+<div id = "controls" class="newboxes">
+</div>
+
+<div id = "explain" class="newboxes">
+</div>
+
 </div>
 </body>
 </html>

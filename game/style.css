@@ -6,6 +6,7 @@ body{
 	background: #BADA55;
      margin:0;
      padding:0;
+     background-image: url(images/spess.png);
 }
 canvas{
 	display: block;

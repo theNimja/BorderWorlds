@@ -3,11 +3,14 @@ font-family:Spaceage;
 src:url(font/SpaceAge.ttf) format("opentype");
 }
 #rightbar{
-position:fixed;
-border:3px solid black;
-background:blue;
-border-radius:2px;
+
 float:right;
 }
 #text{
+float:left;
+
+
+}
+.newboxes {
+    display: none;
 }
