@@ -208,7 +208,7 @@ function getMousePos(canvas, evt) {
 var maxHold=100;
 var money = 1000;
 var shipHold=[0,0,0,0,0,0,0,0,0,0];
-var cNames = ["Gold", "Oil", "Corn", "Cattle", "Coffee", "Sugar", "Copper", "Rice", "Palladium", "Natural Gas"];
+var cNames = ["Gold", "Uranium Fuel", "Grain", "Organisms", "Luxury Rations", "Sugar", "Metals", "Basic rations", "Palladium", "Natural Gas"];
 var cData = "Not Set yet";
 
 function loadData() {

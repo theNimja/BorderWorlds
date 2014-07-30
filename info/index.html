@@ -9,10 +9,13 @@
 function showonlyone(thechosenone) {
      $('.newboxes').each(function(index) {
           if ($(this).attr("id") == thechosenone) {
-               $(this).slideDown(600);
+           
+               setTimeout($(this).slideDown(600),600);
+               
           }
           else {
-               $(this).slideUp(600);
+               $(this).slideUp(300);
+               
           }
      });
 }
@@ -23,7 +26,15 @@ function showonlyone(thechosenone) {
 
 <!--Music by nosoapradio.us-->
 <div id="rightbar" width="400px" height="100vh">
-<a href="#" onclick="javascript:showonlyone('story');">story<a>
+<div id ="story">
+<a href="#" onclick="javascript:showonlyone('story');">Story<a>
+</div>
+<div id ="control">
+<a href="#" onclick="javascript:showonlyone('controls');">Controls<a>
+</div>
+<div id ="control">
+<a href="#" onclick="javascript:showonlyone('explain');">Explanation<a>
+</div>
 </div>
 <div id="text">
 <div id= "story" class="newboxes">
@@ -36,6 +47,7 @@ function showonlyone(thechosenone) {
 </div>
 
 <div id = "controls" class="newboxes">
+<p><br><br>Click to tell the ship where to move to. If you move close to a planet,you will dock with it,and be able to purchase resources.You can also repiair yor ship with the "Repair" button.</p>
 </div>
 
 <div id = "explain" class="newboxes">
