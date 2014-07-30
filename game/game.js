@@ -5,6 +5,7 @@ var context = canvas.getContext("2d");
 var waypointX;
 var waypointY;
 var shipHull=900;
+var maxShipHull = 900;
 
 
 //Set up images
@@ -235,7 +236,16 @@ function sell(cId, pId, amount) {
 	loadStore(pId);
 }
 
-
+function repair() {
+	var toRepair = maxShipHull - shipHull;
+	if (money > toRepair) {
+		shipHull = maxShipHull;
+		money = money - toRepair;
+	} else {
+		shipHull = shipHull + money;
+		money = 0;
+	}
+}
 
 window.setInterval(function() {
 	for (var j = 0; j < mods.length; j ++) {
@@ -255,6 +265,6 @@ function loadStore(pId) {
 		html = html + "<tr><td>" + cNames[i] + "</td><td><button onclick='buy(" + i + "," + pId + "," + "1)'>" + getPrice(i, pId, true) + 
 			"</a></td><td><button onclick='sell(" + i + "," + pId + "," + "1)'>" + getPrice(i, pId, false) +"</a></td></tr>";
 	}
-	html = html + "</table>[<a href='#' onclick='overlay()'>Close</a>]";
+	html = html + "<tr><button onclick='repair()'>Repair</button></tr></table>[<a href='#' onclick='overlay()'>Close</a>]";
 	document.getElementById("store").innerHTML = html;
 }
