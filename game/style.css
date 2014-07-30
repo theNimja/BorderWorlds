@@ -11,6 +11,19 @@ canvas{
 	
 	
 }
+
+a{
+{
+     width: 60px;
+     height: 25px;
+     background-image: url(images/button.png);
+     font-size: 14px;
+     font-family: Tahoma, Geneva, sans-serif;
+     font-weight: bold;
+     text-align: center; 
+}
+
+}
 #overlay div {
      width:300px;
      margin: 100px auto;
