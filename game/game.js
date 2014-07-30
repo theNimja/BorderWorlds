@@ -68,7 +68,9 @@ var distArr = new Array();
 var planetXs=[100,250];
 var planetYs=[200,506];
 var planetIcos=[imgProtoPlanet,imgProtoPlanet];
+var origMods = [[1,1.2],[2,0.8],[0.2,1.4],[1.4,1.3],[2.2,1.4],[0.3333,1],[0.2,1.5],[2.5,0.31415],[0.7,1.1],[1,1.2]];
 var mods=[[1,1.2],[2,0.8],[0.2,1.4],[1.4,1.3],[2.2,1.4],[0.3333,1],[0.2,1.5],[2.5,0.31415],[0.7,1.1],[1,1.2]];
+
 //banana banana banana
 function init(){
 	requestAnimFrame(update);
@@ -184,7 +186,7 @@ function buy(cId, pId, amount) {
 		if (amount <= maxHold - totalHold) {
 			shipHold[cId] += amount;
 			money = money - price;
-			mods[cId][pId] = mods[cId][pId] * 1.1;
+			mods[cId][pId] = mods[cId][pId] * 1.01;
 		} else {
 			alert("Not enough space in the hold!");
 		}
@@ -198,12 +200,26 @@ function sell(cId, pId, amount) {
 	if (shipHold[cId] >= amount) {
 		shipHold[cId] = shipHold[cId] - amount;
 		money += getPrice(cId, pId, false);
-		mods[cId][pId] = mods[cId][pId] * 0.9;
+		mods[cId][pId] = mods[cId][pId] * 0.99;
 	} else {
 		alert("Not enough of resource");
 	}
 	loadStore(pId);
 }
+
+
+
+window.setInterval(function() {
+	for (var j = 0; j < mods.length; j ++) {
+		for (var k = 0; k < mods[j].length; k ++) {
+			if (mods[j][k] > origMods[j][k]) {
+				mods[j][k] = mods[j][k] * 0.99;
+			} else if (mods[j][k] < origMods[j][k]) {
+				mods[j][k] = mods[j][k] * 1.01;
+			}
+		}
+	}
+}, 10000);
 
 function loadStore(pId) {
 	var html = "<h1>Commerce Center</h1><table><tr><td>Resource</td><td>Buy</td><td>Sell</td></tr>";
