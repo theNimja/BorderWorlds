@@ -6,6 +6,9 @@ src:url(../font/SpaceAge.ttf) format("opentype");
 font-family:Futura;
 src:url(../font/Futura.ttf) format("opentype");
 }
+body {
+	background-image: url("../game/images/spess.png");
+}
 #rightbar{
 float:right;
 margin-right:300px;
