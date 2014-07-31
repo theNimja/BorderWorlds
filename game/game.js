@@ -16,6 +16,9 @@ imgShip.addEventListener("load", init, false);
 imgProtoPlanet= new Image();
 imgProtoPlanet.src= "images/protoPlanet.png";
 imgProtoPlanet.addEventListener("load", init, false);
+imgDesertPlanet= new Image();
+imgDesertPlanet.src= "images/desertPlanet.png";
+imgDesertPlanet.addEventListener("load", init, false);
 shipUp=new Image();
 shipUp.src= "images/shipFullU.png";
 shipUp.addEventListener("load",init,false);
@@ -75,10 +78,10 @@ var distArr = new Array();
 
 var planetXs=[100,250,632,853,443,954];
 var planetYs=[200,506,232,467,500,130];
-var pNames=["Zardos", "GF-12756"];
+var pNames=["Yoni Bloch", "Kerensa Jennings", "Tetteh Kofi", "Bill Liao", "Katrina Roberts", "Sathya Smith"];
 var asteroidXs=[150,400];
 var asteroidYs=[350,200];
-var planetIcos=[imgProtoPlanet,imgProtoPlanet,imgProtoPlanet,imgProtoPlanet,imgProtoPlanet,imgProtoPlanet];
+var planetIcos=[imgDesertPlanet,imgProtoPlanet,imgProtoPlanet,imgProtoPlanet,imgProtoPlanet,imgProtoPlanet];
 var origMods = [[1,1.2],[2,0.8],[0.2,1.4],[1.4,1.3],[2.2,1.4],[0.3333,1],[0.2,1.5],[2.5,0.31415],[0.7,1.1],[1,1.2]];
 var mods=[[1,1.2],[2,0.8],[0.2,1.4],[1.4,1.3],[2.2,1.4],[0.3333,1],[0.2,1.5],[2.5,0.31415],[0.7,1.1],[1,1.2]];
 
@@ -208,7 +211,7 @@ function getMousePos(canvas, evt) {
 var maxHold=100;
 var money = 1000;
 var shipHold=[0,0,0,0,0,0,0,0,0,0];
-var cNames = ["Gold", "Uranium Fuel", "Grain", "Organisms", "Luxury Rations", "Sugar", "Metals", "Basic rations", "Palladium", "Natural Gas"];
+var cNames = ["Gold", "Uranium", "Grain", "Organisms", "Luxury Rations", "Sugar", "Metals", "Basic rations", "Palladium", "Natural Gas"];
 var cData = "Not Set yet";
 
 function loadData() {
