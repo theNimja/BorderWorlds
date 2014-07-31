@@ -179,6 +179,7 @@ function overlay(pId, bool) {
 	el = document.getElementById("overlay");
 	el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
 	showStore = bool;
+	playbeep();
 }
 
 function death() {
@@ -186,6 +187,7 @@ function death() {
 	el = document.getElementById("death");
 	el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
 	document.getElementById("stats").style.visibility = "hidden";
+	playbeep()
 }
 
 //getting info n mouse

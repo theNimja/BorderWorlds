@@ -2,14 +2,19 @@
 <html>
 <head>
 	<link rel="icon" type="image/ico" href="..\images\SpaceTraders.ico">
-
+	<audio id="audiotag1" src="Uibeep.wav" preload="auto"></audio>
 	<title>Traders of the Border Worlds</title>
 	<link rel="stylesheet" href="style.css">
 	<script src="parser.js"></script>
 	<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
 <title>Traders of the Border Worlds</title>
 	
-
+</script>
+<script type="text/javascript">
+	function playbeep() {
+		document.getElementById('audiotag1').play();
+	}
+</script>
 	
 </head>
 <body oncontextmenu="return false;">
@@ -20,7 +25,6 @@
 
 <audio loop="loop" autoplay="autoplay">
 <source src="inSpace.mp3" />  
-error
 </audio>
 <!--Music by nosoapradio.us-->
 	<div id="stats"></div>
@@ -32,6 +36,7 @@ error
      </div>
 	</div>
 	<div id="death">
+	
     <p>You are dead.Better luck next time.</p>
     <a href = "#" onclick="window.location.reload();">Restart</a>
 	</div>

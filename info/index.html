@@ -4,13 +4,13 @@
 <link rel="stylesheet" type="text/css" href="context.css">
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <link rel="icon" type="image/ico" href="..\images\SpaceTraders.ico">
-
+<audio id="audiotag1" src="Uibeep.wav" preload="auto"></audio>
 <script type="text/javascript">
 function showonlyone(thechosenone) {
      $('.newboxes').each(function(index) {
           if ($(this).attr("id") == thechosenone) {
            
-               setTimeout($(this).slideDown(600),600);
+               $(this).slideDown(600);
                
           }
           else {
@@ -21,18 +21,23 @@ function showonlyone(thechosenone) {
 }
 
 </script>
+<script type="text/javascript">
+	function playbeep() {
+		document.getElementById('audiotag1').play();
+	}
+</script>
 </head>
 <body >
 <div id="rightbar">
 <div id="rightbar1" style="background-image: url(../game/images/CommerceBackground.png); background-repeat:no-repeat; height:1024px; width:300px;">
 <div id ="story1">
-<a href="#" onclick="javascript:showonlyone('story');" class="navbar">Story</a>
+<a href="#" onclick="javascript:showonlyone('story'); playbeep();" class="navbar">Story</a>
 </div>
 <div id ="controls1">
-<a href="#" onclick="javascript:showonlyone('controls');" class="navbar">Controls</a>
+<a href="#" onclick="javascript:showonlyone('controls');playbeep();" class="navbar">Controls</a>
 </div>
 <div id ="explanation1">
-<a href="#" onclick="javascript:showonlyone('explain');" class="navbar">Explanation</a>
+<a href="#" onclick="javascript:showonlyone('explain');playbeep();" class="navbar">Explanation</a>
 </div>
 <div id="back1">
 <a href="../index.html" class="navbar">
