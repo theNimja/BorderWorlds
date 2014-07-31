@@ -85,6 +85,7 @@ var planetIcos=[imgDesertPlanet,imgProtoPlanet,imgProtoPlanet,imgProtoPlanet,img
 var origMods = [[1,1.2],[2,0.8],[0.2,1.4],[1.4,1.3],[2.2,1.4],[0.3333,1],[0.2,1.5],[2.5,0.31415],[0.7,1.1],[1,1.2]];
 var mods=[[1,1.2],[2,0.8],[0.2,1.4],[1.4,1.3],[2.2,1.4],[0.3333,1],[0.2,1.5],[2.5,0.31415],[0.7,1.1],[1,1.2]];
 
+
 //banana banana banana
 function init(){
 	requestAnimFrame(update);
@@ -294,3 +295,10 @@ function loadStore(pId) {
 	html = html + "<tr><td class='imageContainer'><a href='#' onclick='repair()'>Repair</a></td><td class='imageContainer'><a href='#' onclick='overlay()'>Close</a></td></tr></table>";
 	document.getElementById("store").innerHTML = html;
 }
+
+for (var i = 0; i < cNames.length; i++) {
+	for (var j = 0; j < pNames.length; j++) {
+		origMods[i][j] = (Math.random() * 1.5) + 0.5;
+	}
+}
+mods = origMods;
