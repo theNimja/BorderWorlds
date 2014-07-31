@@ -85,8 +85,8 @@ var distArr = new Array();
 var planetXs=[100,250,632,853,443,954];
 var planetYs=[200,506,232,467,500,130];
 var pNames=["Yoni Bloch", "Kerensa Jennings", "Tetteh Kofi", "Bill Liao", "Katrina Roberts", "Sathya Smith"];
-var asteroidXs=[150,400];
-var asteroidYs=[350,200];
+var asteroidXs=[getRandomInt(100,1300),getRandomInt(100,1300),getRandomInt(100,1300),getRandomInt(100,1300),getRandomInt(100,1300),getRandomInt(100,1300),getRandomInt(100,1300),getRandomInt(100,1300)];
+var asteroidYs=[getRandomInt(100,600),getRandomInt(100,600),getRandomInt(100,600),getRandomInt(100,600),getRandomInt(100,600),getRandomInt(100,600),getRandomInt(100,600),getRandomInt(100,600)];
 var planetIcos=[imgDesertPlanet,imgGreenPlanet,imgGreenPlanet,imgRockPlanet,imgRockPlanet,imgRockPlanet];
 var origMods = [[1,1.2],[2,0.8],[0.2,1.4],[1.4,1.3],[2.2,1.4],[0.3333,1],[0.2,1.5],[2.5,0.31415],[0.7,1.1],[1,1.2]];
 var mods=[[1,1.2],[2,0.8],[0.2,1.4],[1.4,1.3],[2.2,1.4],[0.3333,1],[0.2,1.5],[2.5,0.31415],[0.7,1.1],[1,1.2]];
@@ -256,6 +256,9 @@ function buy(cId, pId, amount) {
 	}
 	loadStore(pId);
 }
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
 
 function sell(cId, pId, amount) {
 	if (shipHold[cId] >= amount) {
@@ -308,3 +311,5 @@ for (var i = 0; i < cNames.length; i++) {
 	}
 }
 mods = origMods;
+
+
