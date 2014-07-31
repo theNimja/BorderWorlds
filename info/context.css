@@ -17,11 +17,19 @@ position:fixed;
 #text{
 float:left;
 }
+.selectorButton {
+background-image: url(images/Button.png);
+background-repeat:no-repeat;
+height:100px;
+width:280px ;
+}
 .navbar {
 float:left;
 font-size:3em;
 font-family:Futura;
 text-decoration:none;
+margin-left:25px;
+margin-top:18px;
 }
 .newboxes {
 	height:1024px;
@@ -35,21 +43,36 @@ p {
 	padding:20px;	
 }
 #story1 {
-margin-top:30px;
+
 margin-left:20px;
 }
 #controls1 {
-margin-top:100px;
+margin-top:60px;
 margin-left:20px;
 }
 #explanation1 {
-margin-top:170px;
+margin-top:60px;
 margin-left:20px;
 }
 #back1 {
-margin-top:250px;
+margin-top:60px;
 margin-left:20px;
 }
 a {
 color:#EBF5FF;
+}
+#controls {
+display:none;
+}
+#explain {
+display:none;
+}
+#story2 {
+margin-left:85px;
+}
+#controls2 {
+margin-left:60px;
+}
+#back2 {
+margin-left:90px;
 }

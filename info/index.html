@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="context.css">
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <link rel="icon" type="image/ico" href="..\images\SpaceTraders.ico">
-<audio id="audiotag1" src="Uibeep.wav" preload="auto"></audio>
+
 <script type="text/javascript">
 function showonlyone(thechosenone) {
      $('.newboxes').each(function(index) {
@@ -21,26 +21,21 @@ function showonlyone(thechosenone) {
 }
 
 </script>
-<script type="text/javascript">
-	function playbeep() {
-		document.getElementById('audiotag1').play();
-	}
-</script>
 </head>
 <body >
 <div id="rightbar">
-<div id="rightbar1" style="background-image: url(../game/images/CommerceBackground.png); background-repeat:no-repeat; height:1024px; width:300px;">
-<div id ="story1">
-<a href="#" onclick="javascript:showonlyone('story'); playbeep();" class="navbar">Story</a>
+<div id="rightbar1" style=" background-repeat:no-repeat; height:1024px; width:300px;">
+<div id ="story1" class= "selectorButton">
+<a href="#" onclick="javascript:showonlyone('story');" class="navbar" id ="story2">Story</a>
 </div>
-<div id ="controls1">
-<a href="#" onclick="javascript:showonlyone('controls');playbeep();" class="navbar">Controls</a>
+<div id ="controls1" class= "selectorButton">
+<a href="#" onclick="javascript:showonlyone('controls');" class="navbar" id ="controls2">Controls</a>
 </div>
-<div id ="explanation1">
-<a href="#" onclick="javascript:showonlyone('explain');playbeep();" class="navbar">Explanation</a>
+<div id ="explanation1" class= "selectorButton">
+<a href="#" onclick="javascript:showonlyone('explain');" class="navbar" id ="explanation2">Explanation</a>
 </div>
-<div id="back1">
-<a href="../index.html" class="navbar">
+<div id="back1" class= "selectorButton">
+<a href="../index.html" class="navbar" id="back2">
 Back
 </a>
 </div>
@@ -61,6 +56,7 @@ Back
 </div>
 
 <div id = "explain" class="newboxes">
+<p><br><br>&nbsp;&nbsp;&nbsp;&nbsp;Traders of the Border Worlds is a Space trading game where you fly around space in your space ship and trade resources with the planets you pass. You need to make sure that you don't buy or sell to many resources to a single planet or their economy will change making things harder for you.</p>
 </div>
 
 </div>
