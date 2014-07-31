@@ -270,6 +270,7 @@ function repair() {
 		shipHull = shipHull + money;
 		money = 0;
 	}
+	playclang();
 }
 
 window.setInterval(function() {
