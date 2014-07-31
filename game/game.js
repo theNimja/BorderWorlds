@@ -75,7 +75,7 @@ var distArr = new Array();
 
 var planetXs=[100,250,632,853,443,954];
 var planetYs=[200,506,232,467,500,130];
-var pNames=["Zardos", "GF-12756"];
+var pNames=["Yoni Bloch", "Kerensa Jennings", "Tetteh Kofi", "Bill Liao", "Katrina Roberts", "Sathya Smith"];
 var asteroidXs=[150,400];
 var asteroidYs=[350,200];
 var planetIcos=[imgProtoPlanet,imgProtoPlanet,imgProtoPlanet,imgProtoPlanet,imgProtoPlanet,imgProtoPlanet];
