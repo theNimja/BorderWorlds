@@ -9,14 +9,9 @@ var maxShipHull = 900;
 
 
 //Set up images
-
-imgShip = new Image();
-imgShip.src = "images/protoShip.png";
-imgShip.addEventListener("load", init, false);
-imgProtoPlanet= new Image();
-imgProtoPlanet.src= "images/protoPlanet.png";
-imgProtoPlanet.addEventListener("load", init, false);
-imgDesertPlanet= new Image();
+bg=new Image();
+bg.src="images/bg.png";
+bg.addEventListener("load",init,false);
 imgDesertPlanet.src= "images/desertPlanet.png";
 imgDesertPlanet.addEventListener("load", init, false);
 imgRockPlanet=new Image();
@@ -25,6 +20,12 @@ imgRockPlanet.addEventListener("load",init,false);
 imgGreenPlanet=new Image();
 imgGreenPlanet.src="images/greenPlanet.png";
 imgGreenPlanet.addEventListener("load",init,false);
+asteroidField= new Image();
+asteroidField.src= "images/asteroid.png";
+asteroidField.addEventListener("load",init,false);
+
+
+
 shipUp=new Image();
 shipUp.src= "images/shipFullU.png";
 shipUp.addEventListener("load",init,false);
@@ -53,13 +54,7 @@ shipDownRight=new Image();
 shipDownRight.src= "images/shipFullRD.png";
 shipDownRight.addEventListener("load",init,false);
 
-asteroidField= new Image();
-asteroidField.src= "images/asteroid.png";
-asteroidField.addEventListener("load",init,false);
 
-bg=new Image();
-bg.src="images/bg.png";
-bg.addEventListener("load",init,false);
 
 var shipIco;
 var dir="U";
