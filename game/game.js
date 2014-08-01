@@ -12,6 +12,7 @@ var maxShipHull = 900;
 bg=new Image();
 bg.src="images/bg.png";
 bg.addEventListener("load",init,false);
+imgDesertPlanet=new Image();
 imgDesertPlanet.src= "images/desertPlanet.png";
 imgDesertPlanet.addEventListener("load", init, false);
 imgRockPlanet=new Image();
@@ -53,6 +54,33 @@ shipUpRight.addEventListener("load",init,false);
 shipDownRight=new Image();
 shipDownRight.src= "images/shipFullRD.png";
 shipDownRight.addEventListener("load",init,false);
+
+pirUp= new Image();
+pirUp.src="images/pirU.png";
+pirUp.addEventListener("load",init,false);
+pirDown= new Image();
+pirDown.src="images/pirD.png";
+pirDown.addEventListener("load",init,false);
+pirLeft= new Image();
+pirLeft.src="images/pirL.png";
+pirLeft.addEventListener("load",init,false);
+pirRight= new Image();
+pirRight.src="images/pirR.png";
+pirRight.addEventListener("load",init,false);
+
+pirUpLeft= new Image();
+pirUpLeft.src="images/pirUL.png";
+pirUpLeft.addEventListener("load",init,false);
+pirDownRight= new Image();
+pirDownRight.src="images/pirDR.png";
+pirDownRight.addEventListener("load",init,false);
+pirDownLeft= new Image();
+pirDownLeft.src="images/pirDL.png";
+pirDownLeft.addEventListener("load",init,false);
+pirUpRight= new Image();
+pirUpRight.src="images/pirUR.png";
+pirUpRight.addEventListener("load",init,false);
+
 
 
 
