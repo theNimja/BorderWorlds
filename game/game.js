@@ -148,6 +148,11 @@ function update(){
 	}
 	showStore = prev;
 	
+	if (prev) {
+		el = document.getElementById("overlay");
+		el.style.visibility = "hidden";
+	}
+	
 	if (iterator % 5 == 0) {
 		//move the ship
 		dir="";
@@ -170,16 +175,15 @@ function update(){
 		
 		pirDist=Math.sqrt(Math.pow((pirateX-shipX + 8),2)+Math.pow((pirateY-shipY + 8),2));
 		pirDir="";
+		if (pirDist <= 250) {
+			pirWayX = shipX;
+			pirWayY = shipY;
+		}
 		if (pirateX==pirWayX && pirateY == pirWayY){
 			var pirPrev = true;
 			while (pirPrev) {
-				if (pirDist <= 150) {
-					pirWayX = shipX;
-					pirWayY = shipY;
-				} else {
-					pirWayX= getRandomInt(0,1235);
-					pirWayY= getRandomInt(0, 635);
-				}
+				pirWayX= getRandomInt(0,1235);
+				pirWayY= getRandomInt(0, 635);
 				
 				for(i=0; i < planetIcos.length; i++){
 					var pirDist=Math.sqrt(Math.pow((planetXs[i]-pirWayX + 32),2)+Math.pow((planetYs[i]-pirWayY + 32),2));
@@ -194,21 +198,22 @@ function update(){
 				}
 			}
 		}else{
-			if (pirWayX < pirateX){pirateX--;pirDir+="L";}
-			if (pirWayX > pirateX){pirateX++;pirDir+="R";}
-			if (pirWayY < pirateY){pirateY--;pirDir+="U";}
-			if (pirWayY > pirateY){pirateY++;pirDir+="D";}
+			if (iterator % 10 == 0) {
+				if (pirWayX < pirateX){pirateX--;pirDir+="L";}
+				if (pirWayX > pirateX){pirateX++;pirDir+="R";}
+				if (pirWayY < pirateY){pirateY--;pirDir+="U";}
+				if (pirWayY > pirateY){pirateY++;pirDir+="D";}
+				}
+				if (pirDir == "U"){pirIco=pirUp;}
+				else if (pirDir == "D"){pirIco=pirDown;}
+				else if (pirDir == "L"){pirIco=pirLeft;}
+				else if (pirDir == "R"){pirIco=pirRight;}
+				else if (pirDir == "RU"){pirIco=pirUpRight;}
+				else if (pirDir == "LU"){pirIco=pirUpLeft;}
+				else if (pirDir == "RD"){pirIco=pirDownRight;}
+				else if (pirDir == "LD"){pirIco=pirDownLeft;}
+				else{pirIco=pirUp;}
 			}
-			if (pirDir == "U"){pirIco=pirUp;}
-			else if (pirDir == "D"){pirIco=pirDown;}
-			else if (pirDir == "L"){pirIco=pirLeft;}
-			else if (pirDir == "R"){pirIco=pirRight;}
-			else if (pirDir == "RU"){pirIco=pirUpRight;}
-			else if (pirDir == "LU"){pirIco=pirUpLeft;}
-			else if (pirDir == "RD"){pirIco=pirDownRight;}
-			else if (pirDir == "LD"){pirIco=pirDownLeft;}
-			else{pirIco=pirUp;}
-			
 			if (pirDist <= 48) {
 			//get damaged
 			money-=5;
