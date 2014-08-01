@@ -184,9 +184,9 @@ function update(){
 				}
 
 				
-				pirPrev = pirDistArr[0] > 64;
+				pirPrev = pirDistArr[0] > 120;
 				for (var i = 1; i < pirDistArr.length; i++) {
-					prev = prev && pirDistArr[i] > 64;
+					prev = prev && pirDistArr[i] > 120;
 				}
 			}
 		}else{
