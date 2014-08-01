@@ -57,39 +57,15 @@ shipDownRight=new Image();
 shipDownRight.src= "images/shipFullRD.png";
 shipDownRight.addEventListener("load",init,false);
 
-pirUp= new Image();
-pirUp.src="images/pirU.png";
-pirUp.addEventListener("load",init,false);
-pirDown= new Image();
-pirDown.src="images/pirD.png";
-pirDown.addEventListener("load",init,false);
-pirLeft= new Image();
-pirLeft.src="images/pirL.png";
-pirLeft.addEventListener("load",init,false);
-pirRight= new Image();
-pirRight.src="images/pirR.png";
-pirRight.addEventListener("load",init,false);
 
-pirUpLeft= new Image();
-pirUpLeft.src="images/pirUL.png";
-pirUpLeft.addEventListener("load",init,false);
-pirDownRight= new Image();
-pirDownRight.src="images/pirDR.png";
-pirDownRight.addEventListener("load",init,false);
-pirDownLeft= new Image();
-pirDownLeft.src="images/pirDL.png";
-pirDownLeft.addEventListener("load",init,false);
-pirUpRight= new Image();
-pirUpRight.src="images/pirUR.png";
-pirUpRight.addEventListener("load",init,false);
+
 
 
 
 
 var shipIco;
 var dir="U";
-var pirIco;
-var pirDir= "U";
+
 //banana banana banana
 var requestAnimFrame=
 	window.requestAnimationFrame ||
@@ -107,7 +83,7 @@ var shipY = 65;
 var showStore=true;
 
 var distArr = new Array();
-var pirDistArr = new Array();
+
 
 var planetXs=[100,250,632,853,443,954];
 var planetYs=[200,506,232,467,500,130];
@@ -117,7 +93,7 @@ var asteroidYs=[getRandomInt(100,600),getRandomInt(100,600),getRandomInt(100,600
 var planetIcos=[imgDesertPlanet,imgGreenPlanet,imgGreenPlanet,imgRockPlanet,imgRockPlanet,imgRockPlanet];
 var origMods = [[1,1.2],[2,0.8],[0.2,1.4],[1.4,1.3],[2.2,1.4],[0.3333,1],[0.2,1.5],[2.5,0.31415],[0.7,1.1],[1,1.2]];
 var mods=[[1,1.2],[2,0.8],[0.2,1.4],[1.4,1.3],[2.2,1.4],[0.3333,1],[0.2,1.5],[2.5,0.31415],[0.7,1.1],[1,1.2]];
-var pirDist;
+
 
 //banana banana banana
 function init(){
@@ -165,51 +141,10 @@ function update(){
 		
 		
 		
-		pirDist=Math.sqrt(Math.pow((pirateX-shipX + 8),2)+Math.pow((pirateY-shipY + 8),2));
-		pirDir="";
-		if (pirDist <= 200) {
-			pirWayX = shipX;
-			pirWayY = shipY;
-		}
-		if (pirateX==pirWayX && pirateY == pirWayY){
-			var pirPrev = true;
-			while (pirPrev) {
-				pirWayX= getRandomInt(0,1235);
-				pirWayY= getRandomInt(0, 635);
-				
-				for(i=0; i < planetIcos.length; i++){
-					var pirDist=Math.sqrt(Math.pow((planetXs[i]-pirWayX + 32),2)+Math.pow((planetYs[i]-pirWayY + 32),2));
-					if (pirDist <= 64)
-					pirDistArr[i] = pirDist;
-				}
+	
 
-				
-				pirPrev = pirDistArr[0] > 64;
-				for (var i = 1; i < pirDistArr.length; i++) {
-					prev = prev && pirDistArr[i] > 64;
-				}
-			}
-		}else{
-			if (iterator % 10 == 0) {
-				if (pirWayX < pirateX){pirateX--;pirDir+="L";}
-				if (pirWayX > pirateX){pirateX++;pirDir+="R";}
-				if (pirWayY < pirateY){pirateY--;pirDir+="U";}
-				if (pirWayY > pirateY){pirateY++;pirDir+="D";}
-				}
-				if (pirDir == "U"){pirIco=pirUp;}
-				else if (pirDir == "D"){pirIco=pirDown;}
-				else if (pirDir == "L"){pirIco=pirLeft;}
-				else if (pirDir == "R"){pirIco=pirRight;}
-				else if (pirDir == "RU"){pirIco=pirUpRight;}
-				else if (pirDir == "LU"){pirIco=pirUpLeft;}
-				else if (pirDir == "RD"){pirIco=pirDownRight;}
-				else if (pirDir == "LD"){pirIco=pirDownLeft;}
-				else{pirIco=pirUp;}
-			}
-			if (pirDist <= 48) {
-			//get damaged
-			money-=5;
-		}
+
+
 	}
 	if (dir == "U"){shipIco=shipUp;}
 		else if (dir == "D"){shipIco=shipDown;}
@@ -219,14 +154,14 @@ function update(){
 		else if (dir == "LU"){shipIco=shipUpLeft;}
 		else if (dir == "RD"){shipIco=shipDownRight;}
 		else if (dir == "LD"){shipIco=shipDownLeft;}
-	
+		else{shipIco=shipUp;}	
 	//draw planets
 	for (i = 0; i < planetIcos.length; i++){
 	context.drawImage(planetIcos[i],planetXs[i],planetYs[i],64,64);
 	}
 	//draw the ship
 	context.drawImage(shipIco,shipX,shipY,16,16);
-	context.drawImage(pirIco,pirateX,pirateY,16,16);
+
 	//draw the asteroid fields
 	for (i = 0; i < asteroidXs.length; i++){
 	context.drawImage(asteroidField,asteroidXs[i],asteroidYs[i],32,32);
@@ -251,17 +186,6 @@ function update(){
 
 	}
 		
-
-		if (pirDist <= 48) {
-		//get damaged
-
-		shipHull-=2;
-		if (shipHull<= 0){
-		shipX=999999999;
-		shipY=999999999;
-		death();
-		}
-		}
 
 	//rshdhafBERYwry
 	
