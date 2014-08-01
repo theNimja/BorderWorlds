@@ -83,6 +83,7 @@ var shipY = 65;
 var showStore=true;
 
 var distArr = new Array();
+var distArr = new Array();
 
 
 var planetXs=[100,250,632,853,443,954];
@@ -139,12 +140,51 @@ function update(){
 		if (waypointY > shipY){shipY++;dir+="D";}
 		}
 		
-		
-		
-	
+		pirDist=Math.sqrt(Math.pow((pirateX-shipX + 8),2)+Math.pow((pirateY-shipY + 8),2));
+		pirDir="";
+		if (pirDist < 150) {
+			pirWayX = shipX;
+			pirWayY = shipY;
+		}
+		if (pirateX==pirWayX && pirateY == pirWayY){
+			var pirPrev = true;
+			while (pirPrev) {
+				pirWayX= getRandomInt(0,1235);
+				pirWayY= getRandomInt(0, 635);
+				
+				for(i=0; i < planetIcos.length; i++){
+					var pirDist=Math.sqrt(Math.pow((planetXs[i]-pirWayX + 32),2)+Math.pow((planetYs[i]-pirWayY + 32),2));
+					if (pirDist <= 64)
+					pirDistArr[i] = pirDist;
+				}
 
-
-
+				
+				pirPrev = pirDistArr[0] > 64;
+				for (var i = 1; i < pirDistArr.length; i++) {
+					prev = prev && pirDistArr[i] > 64;
+				}
+			}
+		}else{
+			if (iterator % 10 == 0) {
+				if (pirWayX < pirateX){pirateX--;pirDir+="L";}
+				if (pirWayX > pirateX){pirateX++;pirDir+="R";}
+				if (pirWayY < pirateY){pirateY--;pirDir+="U";}
+				if (pirWayY > pirateY){pirateY++;pirDir+="D";}
+				}
+				if (pirDir == "U"){pirIco=pirUp;}
+				else if (pirDir == "D"){pirIco=pirDown;}
+				else if (pirDir == "L"){pirIco=pirLeft;}
+				else if (pirDir == "R"){pirIco=pirRight;}
+				else if (pirDir == "RU"){pirIco=pirUpRight;}
+				else if (pirDir == "LU"){pirIco=pirUpLeft;}
+				else if (pirDir == "RD"){pirIco=pirDownRight;}
+				else if (pirDir == "LD"){pirIco=pirDownLeft;}
+				//else{pirIco=pirUp;}
+			}
+			if (pirDist <= 48) {
+			//get damaged
+			money-=5;
+			}
 	}
 	if (dir == "U"){shipIco=shipUp;}
 		else if (dir == "D"){shipIco=shipDown;}
@@ -155,6 +195,7 @@ function update(){
 		else if (dir == "RD"){shipIco=shipDownRight;}
 		else if (dir == "LD"){shipIco=shipDownLeft;}
 		else{shipIco=shipUp;}	
+
 	//draw planets
 	for (i = 0; i < planetIcos.length; i++){
 	context.drawImage(planetIcos[i],planetXs[i],planetYs[i],64,64);
@@ -171,23 +212,21 @@ function update(){
 	for(i=0;i<asteroidXs.length;i++){
 		var astDist=Math.sqrt(Math.pow((asteroidXs[i]-shipX + 16),2)+Math.pow((asteroidYs[i]-shipY + 16),2));
 		if (astDist <= 32) {
-		//get damaged
-		shipHull--;
-		if (shipHull<= 0){
-		shipX=999999999;
-		shipY=999999999;
-		death();
-		}
+			//get damaged
+			shipHull--;
 		}
 		
 	}
-	if (money<=0 && (shipHold[0] && shipHold[1] && shipHold[2] && shipHold[3] && shipHold[4] && shipHold[5] && shipHold[6] && shipHold[7] && shipHold[8] && shipHold[9])==0){
+	if (money<=0 && (shipHold[0] + shipHold[1] + shipHold[2] + shipHold[3] + shipHold[4] + shipHold[5] + shipHold[6] + shipHold[7] + shipHold[8] + shipHold[9])==0){
 	death();
 
 	}
-		
 
-	//rshdhafBERYwry
+	if (shipHull<= 0){
+		shipX=999999999;
+		shipY=999999999;
+		death();
+	}
 	
 	
 	var html = "Credits: " + money + "&nbsp&nbsp|&nbsp&nbsp";
@@ -211,9 +250,9 @@ function overlay(pId, bool) {
 function death() {
 	
 	el = document.getElementById("death");
-	el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+	el.style.visibility = "visible";
 	document.getElementById("stats").style.visibility = "hidden";
-	playbeep()
+	playbeep();
 }
 
 //getting info n mouse
