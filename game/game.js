@@ -246,18 +246,19 @@ function update(){
 
 	}
 		
-<<<<<<< HEAD
+
 		if (pirDist <= 48) {
 		//get damaged
+
 		shipHull-=2;
-=======
-		
->>>>>>> origin/gh-pages
 		if (shipHull<= 0){
 		shipX=999999999;
 		shipY=999999999;
 		death();
 		}
+		}
+
+	//rshdhafBERYwry
 	
 	
 	var html = "Credits: " + money + "&nbsp&nbsp|&nbsp&nbsp";
