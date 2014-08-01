@@ -188,6 +188,11 @@ if (pirateX==pirWayX && pirateY == pirWayY){
 		if (astDist <= 32) {
 		//get damaged
 		shipHull--;
+		if (shipHull<= 0){
+		shipX=999999999;
+		shipY=999999999;
+		death();
+		}
 		}
 		
 	}
@@ -200,12 +205,13 @@ if (pirateX==pirWayX && pirateY == pirWayY){
 		if (pirDist <= 48) {
 		//get damaged
 		shipHull-=5;
-		}
-	if (shipHull<= 0){
+		if (shipHull<= 0){
 		shipX=999999999;
 		shipY=999999999;
 		death();
 		}
+		}
+	
 	
 	
 	for(i=0; i < planetIcos.length; i++){
