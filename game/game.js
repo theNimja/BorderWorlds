@@ -188,21 +188,24 @@ if (pirateX==pirWayX && pirateY == pirWayY){
 		if (astDist <= 32) {
 		//get damaged
 		shipHull--;
-		if (shipHull<= 0){
-		shipX=999999999;
-		shipY=999999999;
-		death();
-		
-		
-		}
 		}
 		
 	}
 	if (money==0 && (shipHold[0] && shipHold[1] && shipHold[2] && shipHold[3] && shipHold[4] && shipHold[5] && shipHold[6] && shipHold[7] && shipHold[8] && shipHold[9])==0){
 	death();
-	
-	
+
 	}
+		var pirDist=Math.sqrt(Math.pow((pirateX-shipX + 8),2)+Math.pow((pirateY-shipY + 8),2));
+		
+		if (pirDist <= 48) {
+		//get damaged
+		shipHull-=5;
+		}
+	if (shipHull<= 0){
+		shipX=999999999;
+		shipY=999999999;
+		death();
+		}
 	
 	
 	for(i=0; i < planetIcos.length; i++){
