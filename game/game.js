@@ -208,7 +208,7 @@ function update(){
 		
 		if (pirDist <= 48) {
 		//get damaged
-		shipHull-=5;
+		shipHull-=2;
 		if (shipHull<= 0){
 		shipX=999999999;
 		shipY=999999999;
