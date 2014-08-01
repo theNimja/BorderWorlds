@@ -190,7 +190,7 @@ function update(){
 				}
 			}
 		}else{
-			if (iterator % 10 == 0) {
+			if (iterator % 10 == 0 && showStore) {
 				if (pirWayX < pirateX){pirateX--;pirDir+="L";}
 				if (pirWayX > pirateX){pirateX++;pirDir+="R";}
 				if (pirWayY < pirateY){pirateY--;pirDir+="U";}
