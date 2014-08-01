@@ -159,7 +159,7 @@ function update(){
 	
 	for(i=0; i < planetIcos.length; i++){
 		var dist=Math.sqrt(Math.pow((planetXs[i]-shipX + 32),2)+Math.pow((planetYs[i]-shipY + 32),2));
-		if (dist <= 32 && showStore) {
+		if (dist <= 64 && showStore) {
 		//blah, dock,things.
 			overlay(i, false);
 		}
