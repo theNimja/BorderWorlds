@@ -171,11 +171,11 @@ function update(){
 		else if (dir == "LU"){shipIco=shipUpLeft;}
 		else if (dir == "RD"){shipIco=shipDownRight;}
 		else if (dir == "LD"){shipIco=shipDownLeft;}
-		else{shipIco=shipUp;}
+		else if (dir == "U"){shipIco=shipUp;}
 		
 		pirDist=Math.sqrt(Math.pow((pirateX-shipX + 8),2)+Math.pow((pirateY-shipY + 8),2));
 		pirDir="";
-		if (pirDist <= 250) {
+		if (pirDist <= 200) {
 			pirWayX = shipX;
 			pirWayY = shipY;
 		}
@@ -246,7 +246,7 @@ function update(){
 		}
 		
 	}
-	if (money==0 && (shipHold[0] && shipHold[1] && shipHold[2] && shipHold[3] && shipHold[4] && shipHold[5] && shipHold[6] && shipHold[7] && shipHold[8] && shipHold[9])==0){
+	if (money<=0 && (shipHold[0] && shipHold[1] && shipHold[2] && shipHold[3] && shipHold[4] && shipHold[5] && shipHold[6] && shipHold[7] && shipHold[8] && shipHold[9])==0){
 	death();
 
 	}
