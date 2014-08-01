@@ -127,6 +127,10 @@ function init(){
 var iterator = 0;
 //drawing the frame.Most game code goes here.
 function update(){
+	if (money <0){
+	
+	money= 0;
+	}
 	context.clearRect(0,0,canvas.width,canvas.height)
 	
 	requestAnimFrame(update);
@@ -156,14 +160,22 @@ function update(){
 	if (iterator % 5 == 0) {
 		//move the ship
 		dir="";
-		if (waypointX != shipX || waypointY != shipY){
+		if (!(waypointX==shipX && waypointY==shipY)){
 		if (waypointX < shipX){shipX--;dir+="L";}
 		if (waypointX > shipX){shipX++;dir+="R";}
 		if (waypointY < shipY){shipY--;dir+="U";}
 		if (waypointY > shipY){shipY++;dir+="D";}
 		}
-		
-		
+		console.log(dir);
+		if(dir == "U"){shipIco=shipUp;}
+		else if (dir == "LRD"){shipIco=shipDown;}
+		else if (dir == "L"){shipIco=shipLeft;}
+		else if (dir == "R"){shipIco=shipRight;}
+		else if (dir == "RU"){shipIco=shipUpRight;}
+		else if (dir == "LU"){shipIco=shipUpLeft;}
+		else if (dir == "RD"){shipIco=shipDownRight;}
+		else if (dir == "LD"){shipIco=shipDownLeft;}
+		else {shipIco=shipUp;}
 		
 		pirDist=Math.sqrt(Math.pow((pirateX-shipX + 8),2)+Math.pow((pirateY-shipY + 8),2));
 		pirDir="";
@@ -211,15 +223,7 @@ function update(){
 			money-=5;
 			}
 	}
-	if (dir == "U"){shipIco=shipUp;}
-		else if (dir == "D"){shipIco=shipDown;}
-		else if (dir == "L"){shipIco=shipLeft;}
-		else if (dir == "R"){shipIco=shipRight;}
-		else if (dir == "RU"){shipIco=shipUpRight;}
-		else if (dir == "LU"){shipIco=shipUpLeft;}
-		else if (dir == "RD"){shipIco=shipDownRight;}
-		else if (dir == "LD"){shipIco=shipDownLeft;}
-		else {shipIco=shipUp;}
+	
 	
 	//draw planets
 	for (i = 0; i < planetIcos.length; i++){
@@ -272,7 +276,8 @@ function overlay(pId, bool) {
 }
 
 function death() {
-	
+	shipX=99999999999;
+	shipY=99999999999;
 	el = document.getElementById("death");
 	el.style.visibility = "visible";
 	document.getElementById("stats").style.visibility = "hidden";
