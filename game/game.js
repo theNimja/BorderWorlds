@@ -6,8 +6,10 @@ var waypointX;
 var waypointY;
 var shipHull=900;
 var maxShipHull = 900;
-
-
+var pirateX=1219;
+var pirateY=619;
+var pirWayX=1219;
+var pirWayY=619;
 //Set up images
 bg=new Image();
 bg.src="images/bg.png";
@@ -86,7 +88,8 @@ pirUpRight.addEventListener("load",init,false);
 
 var shipIco;
 var dir="U";
-
+var pirIco;
+var pirDir= "U";
 //banana banana banana
 var requestAnimFrame=
 	window.requestAnimationFrame ||
@@ -133,7 +136,7 @@ function update(){
 	if (waypointY < shipY){shipY--;dir+="U";}
 	if (waypointY > shipY){shipY++;dir+="D";}
 	}
-	//console.log(dir);
+	
 	if (dir == "U"){shipIco=shipUp;}
 	else if (dir == "D"){shipIco=shipDown;}
 	else if (dir == "L"){shipIco=shipLeft;}
@@ -144,6 +147,27 @@ function update(){
 	else if (dir == "LD"){shipIco=shipDownLeft;}
 	else{shipIco=shipUp;}
 	
+	pirDir="";
+if (pirateX==pirWayX && pirateY == pirWayY){
+		pirWayX= getRandomInt(0,1235);
+		pirWayY= getRandomInt(0, 635);
+
+
+}else{
+	if (pirWayX < pirateX){pirateX--;pirDir+="L";}
+	if (pirWayX > pirateX){pirateX++;pirDir+="R";}
+	if (pirWayY < pirateY){pirateY--;pirDir+="U";}
+	if (pirWayY > pirateY){pirateY++;pirDir+="D";}
+	}
+	if (pirDir == "U"){pirIco=pirUp;}
+	else if (pirDir == "D"){pirIco=pirDown;}
+	else if (pirDir == "L"){pirIco=pirLeft;}
+	else if (pirDir == "R"){pirIco=pirRight;}
+	else if (pirDir == "RU"){pirIco=pirUpRight;}
+	else if (pirDir == "LU"){pirIco=pirUpLeft;}
+	else if (pirDir == "RD"){pirIco=pirDownRight;}
+	else if (pirDir == "LD"){pirIco=pirDownLeft;}
+	else{pirIco=pirUp;}
 	
 	
 	//draw planets
@@ -152,6 +176,7 @@ function update(){
 	}
 	//draw the ship
 	context.drawImage(shipIco,shipX,shipY,16,16);
+	context.drawImage(pirIco,pirateX,pirateY,16,16);
 	//draw the asteroid fields
 	for (i = 0; i < asteroidXs.length; i++){
 	context.drawImage(asteroidField,asteroidXs[i],asteroidYs[i],32,32);
