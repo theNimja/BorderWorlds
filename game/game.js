@@ -122,53 +122,57 @@ var mods=[[1,1.2],[2,0.8],[0.2,1.4],[1.4,1.3],[2.2,1.4],[0.3333,1],[0.2,1.5],[2.
 function init(){
 	requestAnimFrame(update);
 }
+
+var iterator = 0;
 //drawing the frame.Most game code goes here.
 function update(){
 	context.clearRect(0,0,canvas.width,canvas.height)
 	
 	requestAnimFrame(update);
 	context.drawImage(bg,0,0,1300,740);
-	//move the ship
-	dir="";
-	if (waypointX != shipX || waypointY != shipY){
-	if (waypointX < shipX){shipX--;dir+="L";}
-	if (waypointX > shipX){shipX++;dir+="R";}
-	if (waypointY < shipY){shipY--;dir+="U";}
-	if (waypointY > shipY){shipY++;dir+="D";}
-	}
 	
-	if (dir == "U"){shipIco=shipUp;}
-	else if (dir == "D"){shipIco=shipDown;}
-	else if (dir == "L"){shipIco=shipLeft;}
-	else if (dir == "R"){shipIco=shipRight;}
-	else if (dir == "RU"){shipIco=shipUpRight;}
-	else if (dir == "LU"){shipIco=shipUpLeft;}
-	else if (dir == "RD"){shipIco=shipDownRight;}
-	else if (dir == "LD"){shipIco=shipDownLeft;}
-	else{shipIco=shipUp;}
-	
-	pirDir="";
-if (pirateX==pirWayX && pirateY == pirWayY){
-		pirWayX= getRandomInt(0,1235);
-		pirWayY= getRandomInt(0, 635);
+	if (iterator % 5 == 0) {
+		//move the ship
+		dir="";
+		if (waypointX != shipX || waypointY != shipY){
+		if (waypointX < shipX){shipX--;dir+="L";}
+		if (waypointX > shipX){shipX++;dir+="R";}
+		if (waypointY < shipY){shipY--;dir+="U";}
+		if (waypointY > shipY){shipY++;dir+="D";}
+		}
+		
+		if (dir == "U"){shipIco=shipUp;}
+		else if (dir == "D"){shipIco=shipDown;}
+		else if (dir == "L"){shipIco=shipLeft;}
+		else if (dir == "R"){shipIco=shipRight;}
+		else if (dir == "RU"){shipIco=shipUpRight;}
+		else if (dir == "LU"){shipIco=shipUpLeft;}
+		else if (dir == "RD"){shipIco=shipDownRight;}
+		else if (dir == "LD"){shipIco=shipDownLeft;}
+		else{shipIco=shipUp;}
+		
+		pirDir="";
+		if (pirateX==pirWayX && pirateY == pirWayY){
+				pirWayX= getRandomInt(0,1235);
+				pirWayY= getRandomInt(0, 635);
 
 
-}else{
-	if (pirWayX < pirateX){pirateX--;pirDir+="L";}
-	if (pirWayX > pirateX){pirateX++;pirDir+="R";}
-	if (pirWayY < pirateY){pirateY--;pirDir+="U";}
-	if (pirWayY > pirateY){pirateY++;pirDir+="D";}
+		}else{
+			if (pirWayX < pirateX){pirateX--;pirDir+="L";}
+			if (pirWayX > pirateX){pirateX++;pirDir+="R";}
+			if (pirWayY < pirateY){pirateY--;pirDir+="U";}
+			if (pirWayY > pirateY){pirateY++;pirDir+="D";}
+			}
+			if (pirDir == "U"){pirIco=pirUp;}
+			else if (pirDir == "D"){pirIco=pirDown;}
+			else if (pirDir == "L"){pirIco=pirLeft;}
+			else if (pirDir == "R"){pirIco=pirRight;}
+			else if (pirDir == "RU"){pirIco=pirUpRight;}
+			else if (pirDir == "LU"){pirIco=pirUpLeft;}
+			else if (pirDir == "RD"){pirIco=pirDownRight;}
+			else if (pirDir == "LD"){pirIco=pirDownLeft;}
+			else{pirIco=pirUp;}
 	}
-	if (pirDir == "U"){pirIco=pirUp;}
-	else if (pirDir == "D"){pirIco=pirDown;}
-	else if (pirDir == "L"){pirIco=pirLeft;}
-	else if (pirDir == "R"){pirIco=pirRight;}
-	else if (pirDir == "RU"){pirIco=pirUpRight;}
-	else if (pirDir == "LU"){pirIco=pirUpLeft;}
-	else if (pirDir == "RD"){pirIco=pirDownRight;}
-	else if (pirDir == "LD"){pirIco=pirDownLeft;}
-	else{pirIco=pirUp;}
-	
 	
 	//draw planets
 	for (i = 0; i < planetIcos.length; i++){
@@ -236,6 +240,8 @@ if (pirateX==pirWayX && pirateY == pirWayY){
 	}
 	html+="Hull Integrity: " +shipHull;
 	document.getElementById("stats").innerHTML = html;
+	
+	iterator ++;
 }
 
 function overlay(pId, bool) {
