@@ -107,6 +107,7 @@ var shipY = 65;
 var showStore=true;
 
 var distArr = new Array();
+var pirDistArr = new Array();
 
 var planetXs=[100,250,632,853,443,954];
 var planetYs=[200,506,232,467,500,130];
@@ -116,7 +117,7 @@ var asteroidYs=[getRandomInt(100,600),getRandomInt(100,600),getRandomInt(100,600
 var planetIcos=[imgDesertPlanet,imgGreenPlanet,imgGreenPlanet,imgRockPlanet,imgRockPlanet,imgRockPlanet];
 var origMods = [[1,1.2],[2,0.8],[0.2,1.4],[1.4,1.3],[2.2,1.4],[0.3333,1],[0.2,1.5],[2.5,0.31415],[0.7,1.1],[1,1.2]];
 var mods=[[1,1.2],[2,0.8],[0.2,1.4],[1.4,1.3],[2.2,1.4],[0.3333,1],[0.2,1.5],[2.5,0.31415],[0.7,1.1],[1,1.2]];
-
+var pirDist;
 
 //banana banana banana
 function init(){
@@ -130,6 +131,22 @@ function update(){
 	
 	requestAnimFrame(update);
 	context.drawImage(bg,0,0,1300,740);
+	
+	for(i=0; i < planetIcos.length; i++){
+		var dist=Math.sqrt(Math.pow((planetXs[i]-shipX + 32),2)+Math.pow((planetYs[i]-shipY + 32),2));
+		if (dist <= 64 && showStore) {
+		//blah, dock,things.
+			overlay(i, false);
+		}
+		distArr[i] = dist;
+	}
+
+	
+	var prev = distArr[0] > 64;
+	for (var i = 1; i < distArr.length; i++) {
+		prev = prev && distArr[i] > 64;
+	}
+	showStore = prev;
 	
 	if (iterator % 5 == 0) {
 		//move the ship
@@ -151,12 +168,31 @@ function update(){
 		else if (dir == "LD"){shipIco=shipDownLeft;}
 		else{shipIco=shipUp;}
 		
+		pirDist=Math.sqrt(Math.pow((pirateX-shipX + 8),2)+Math.pow((pirateY-shipY + 8),2));
 		pirDir="";
 		if (pirateX==pirWayX && pirateY == pirWayY){
-				pirWayX= getRandomInt(0,1235);
-				pirWayY= getRandomInt(0, 635);
+			var pirPrev = true;
+			while (pirPrev) {
+				if (pirDist <= 150) {
+					pirWayX = shipX;
+					pirWayY = shipY;
+				} else {
+					pirWayX= getRandomInt(0,1235);
+					pirWayY= getRandomInt(0, 635);
+				}
+				
+				for(i=0; i < planetIcos.length; i++){
+					var pirDist=Math.sqrt(Math.pow((planetXs[i]-pirWayX + 32),2)+Math.pow((planetYs[i]-pirWayY + 32),2));
+					if (pirDist <= 64)
+					pirDistArr[i] = pirDist;
+				}
 
-
+				
+				pirPrev = pirDistArr[0] > 64;
+				for (var i = 1; i < pirDistArr.length; i++) {
+					prev = prev && pirDistArr[i] > 64;
+				}
+			}
 		}else{
 			if (pirWayX < pirateX){pirateX--;pirDir+="L";}
 			if (pirWayX > pirateX){pirateX++;pirDir+="R";}
@@ -172,6 +208,11 @@ function update(){
 			else if (pirDir == "RD"){pirIco=pirDownRight;}
 			else if (pirDir == "LD"){pirIco=pirDownLeft;}
 			else{pirIco=pirUp;}
+			
+			if (pirDist <= 48) {
+			//get damaged
+			money-=5;
+		}
 	}
 	
 	//draw planets
@@ -204,35 +245,20 @@ function update(){
 	death();
 
 	}
-		var pirDist=Math.sqrt(Math.pow((pirateX-shipX + 8),2)+Math.pow((pirateY-shipY + 8),2));
 		
+<<<<<<< HEAD
 		if (pirDist <= 48) {
 		//get damaged
 		shipHull-=2;
+=======
+		
+>>>>>>> origin/gh-pages
 		if (shipHull<= 0){
 		shipX=999999999;
 		shipY=999999999;
 		death();
 		}
-		}
 	
-	
-	
-	for(i=0; i < planetIcos.length; i++){
-		var dist=Math.sqrt(Math.pow((planetXs[i]-shipX + 32),2)+Math.pow((planetYs[i]-shipY + 32),2));
-		if (dist <= 64 && showStore) {
-		//blah, dock,things.
-			overlay(i, false);
-		}
-		distArr[i] = dist;
-	}
-
-	
-	var prev = distArr[0] > 64;
-	for (var i = 1; i < distArr.length; i++) {
-		prev = prev && distArr[i] > 64;
-	}
-	showStore = prev;
 	
 	var html = "Credits: " + money + "&nbsp&nbsp|&nbsp&nbsp";
 	for (var i = 0; i < shipHold.length; i ++) {
