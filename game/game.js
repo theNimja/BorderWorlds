@@ -163,15 +163,7 @@ function update(){
 		if (waypointY > shipY){shipY++;dir+="D";}
 		}
 		
-		if (dir == "U"){shipIco=shipUp;}
-		else if (dir == "D"){shipIco=shipDown;}
-		else if (dir == "L"){shipIco=shipLeft;}
-		else if (dir == "R"){shipIco=shipRight;}
-		else if (dir == "RU"){shipIco=shipUpRight;}
-		else if (dir == "LU"){shipIco=shipUpLeft;}
-		else if (dir == "RD"){shipIco=shipDownRight;}
-		else if (dir == "LD"){shipIco=shipDownLeft;}
-		else if (dir == "U"){shipIco=shipUp;}
+		
 		
 		pirDist=Math.sqrt(Math.pow((pirateX-shipX + 8),2)+Math.pow((pirateY-shipY + 8),2));
 		pirDir="";
@@ -219,6 +211,14 @@ function update(){
 			money-=5;
 		}
 	}
+	if (dir == "U"){shipIco=shipUp;}
+		else if (dir == "D"){shipIco=shipDown;}
+		else if (dir == "L"){shipIco=shipLeft;}
+		else if (dir == "R"){shipIco=shipRight;}
+		else if (dir == "RU"){shipIco=shipUpRight;}
+		else if (dir == "LU"){shipIco=shipUpLeft;}
+		else if (dir == "RD"){shipIco=shipDownRight;}
+		else if (dir == "LD"){shipIco=shipDownLeft;}
 	
 	//draw planets
 	for (i = 0; i < planetIcos.length; i++){
