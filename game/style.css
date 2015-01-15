@@ -3,10 +3,10 @@ font-family:Futura;
 src:url(../font/Futura.ttf) format("opentype");
 }
 body{
-	background: #BADA55;
      margin:0;
      padding:0;
      background-image: url(images/spess.png);
+	 background-size:cover
 }
 canvas{
 	display: block;
