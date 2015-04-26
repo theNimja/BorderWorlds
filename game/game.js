@@ -12,7 +12,7 @@ var pirWayX=1219;
 var pirWayY=619;
 //Set up images
 bg=new Image();
-bg.src="images/spess.png";
+bg.src="images/bg.png";
 bg.addEventListener("load",init,false);
 imgDesertPlanet=new Image();
 imgDesertPlanet.src= "images/desertPlanet.png";

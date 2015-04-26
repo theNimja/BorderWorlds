@@ -44,4 +44,10 @@ function getCommodityData() {
 	};
 
 	xhr.send();
+
+	for (var i = 0; i < 10; i ++) {
+		if (!out [i]) {
+			out[i] = getRandomInt(1, 100);
+		}
+	}
 }

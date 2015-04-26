@@ -110,6 +110,7 @@ a:active {
 
 
 @media (max-width: 600px) {
-  #stats {
+#stats {
 	 position: fixed;
+}
 }
